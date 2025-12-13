@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malazan Character Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cinzel', 'Times New Roman', serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 50%, #16213e 100%);
+      color: #d4af37;
+      overflow-x: hidden;
+    }
+
+    .background-overlay {
+      position: fixed;
+      inset: 0;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(218, 165, 32, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .corner-ornament {
+      position: fixed;
+      width: 80px;
+      height: 80px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .corner-ornament.top-left {
+      top: 1rem;
+      left: 1rem;
+      border-top: 2px solid rgba(212, 175, 55, 0.3);
+      border-left: 2px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .corner-ornament.top-right {
+      top: 1rem;
+      right: 1rem;
+      border-top: 2px solid rgba(212, 175, 55, 0.3);
+      border-right: 2px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .container {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+      letter-spacing: 0.1em;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      font-family: 'Crimson Text', Georgia, serif;
+      font-style: italic;
+      color: #b8956f;
+      margin-bottom: 0.5rem;
+    }
+
+    .book-info {
+      font-size: 0.9rem;
+      color: #8b7355;
+      font-family: Georgia, serif;
+    }
+
+    .search-filters {
+      background: rgba(10, 10, 20, 0.7);
+      border: 2px solid rgba(212, 175, 55, 0.4);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      background: rgba(20, 20, 35, 0.8);
+      border: 2px solid rgba(212, 175, 55, 0.4);
+      border-radius: 8px;
+      color: #d4af37;
+      font-family: 'Cinzel', serif;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .search-box:focus {
+      outline: none;
+      border-color: #d4af37;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .search-box::placeholder {
+      color: rgba(212, 175, 55, 0.5);
+    }
+
+    .filters {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .filter-label {
+      font-size: 0.9rem;
+      color: #b8956f;
+      margin-right: 0.5rem;
+    }
+
+    .filter-group {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      background: rgba(20, 20, 35, 0.6);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 6px;
+      color: #b8956f;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+    }
+
+    .filter-btn:hover {
+      border-color: #d4af37;
+      color: #d4af37;
+    }
+
+    .filter-btn.active {
+      background: rgba(212, 175, 55, 0.2);
+      border-color: #d4af37;
+      color: #d4af37;
+    }
+
+    .character-count {
+      font-size: 0.9rem;
+      color: #8b7355;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-family: Georgia, serif;
+    }
+
+    .characters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .character-card {
+      background: rgba(20, 20, 35, 0.6);
+      border: 2px solid rgba(212, 175, 55, 0.3);
+      border-radius: 8px;
+      padding: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .character-card:hover {
+      border-color: #d4af37;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .character-card.selected {
+      border-color: #d4af37;
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+    }
+
+    .character-name {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #d4af37;
+      margin-bottom: 0.3rem;
+    }
+
+    .character-title {
+      font-size: 0.85rem;
+      color: #b8956f;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+      font-family: Georgia, serif;
+    }
+
+    .character-meta {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .meta-badge {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: Georgia, serif;
+    }
+
+    .badge-race { background: rgba(100, 150, 200, 0.2); color: #8eb3d4; }
+    .badge-status-alive { background: rgba(100, 200, 100, 0.2); color: #8ec98e; }
+    .badge-status-dead { background: rgba(200, 100, 100, 0.2); color: #d48e8e; }
+    .badge-status-ascended { background: rgba(200, 150, 250, 0.2); color: #c9a3e8; }
+    .badge-warren { background: rgba(212, 175, 55, 0.2); color: #d4af37; }
+
+    .character-detail {
+      background: rgba(10, 10, 20, 0.85);
+      border: 2px solid rgba(212, 175, 55, 0.5);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(10px);
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .character-detail.show {
+      display: block;
+    }
+
+    .detail-header {
+      border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .detail-name {
+      font-size: 2.5rem;
+      color: #d4af37;
+      margin-bottom: 0.5rem;
+    }
+
+    .detail-aliases {
+      font-size: 1.1rem;
+      color: #b8956f;
+      font-style: italic;
+      font-family: Georgia, serif;
+      margin-bottom: 1rem;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .detail-section {
+      font-family: Georgia, serif;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #c9b896;
+    }
+
+    .detail-label {
+      color: #d4af37;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.3rem;
+      font-family: 'Cinzel', serif;
+    }
+
+    .detail-section p {
+      margin-bottom: 1rem;
+    }
+
+    .detail-section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .detail-section li {
+      padding: 0.3rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .detail-section li:before {
+      content: "◆";
+      position: absolute;
+      left: 0;
+      color: #d4af37;
+    }
+
+    .books-section {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 2px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .books-header {
+      font-size: 1.5rem;
+      color: #d4af37;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.1em;
+    }
+
+    .book-toggle {
+      background: rgba(20, 20, 35, 0.6);
+      border: 2px solid rgba(212, 175, 55, 0.3);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .book-header {
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .book-header:hover {
+      background: rgba(212, 175, 55, 0.1);
+    }
+
+    .book-title {
+      font-size: 1.1rem;
+      color: #d4af37;
+      font-weight: bold;
+    }
+
+    .book-arrow {
+      color: #b8956f;
+      transition: transform 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .book-arrow.open {
+      transform: rotate(90deg);
+    }
+
+    .book-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .book-content.open {
+      max-height: 2000px;
+    }
+
+    .book-summary {
+      padding: 1.5rem;
+      background: rgba(10, 10, 20, 0.4);
+      font-family: Georgia, serif;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #c9b896;
+    }
+
+    .book-summary ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .book-summary li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .book-summary li:before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #d4af37;
+    }
+
+    .close-detail {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: rgba(212, 175, 55, 0.2);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #d4af37;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .close-detail:hover {
+      background: rgba(212, 175, 55, 0.3);
+      border-color: #d4af37;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 968px) {
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .characters-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-overlay"></div>
+  <div class="corner-ornament top-left"></div>
+  <div class="corner-ornament top-right"></div>
+
+  <div class="container">
+    <div class="header">
+      <h1>CHARACTER COMPENDIUM</h1>
+      <p class="subtitle">The Malazan Book of the Fallen</p>
+      <p class="book-info">Through Book III: Memories of Ice</p>
+    </div>
+
+    <div class="search-filters">
+      <input 
+        type="text" 
+        class="search-box" 
+        id="searchBox" 
+        placeholder="Search by name, alias, race, affiliation..."
+      >
+      
+      <div class="filters">
+        <span class="filter-label">Filter by Race:</span>
+        <div class="filter-group" id="raceFilters"></div>
+      </div>
+      
+      <div class="filters">
+        <span class="filter-label">Filter by Status:</span>
+        <div class="filter-group" id="statusFilters"></div>
+      </div>
+      
+      <div class="filters">
+        <span class="filter-label">Filter by Affiliation:</span>
+        <div class="filter-group" id="affiliationFilters"></div>
+      </div>
+    </div>
+
+    <div class="character-count" id="characterCount"></div>
+
+    <div class="characters-grid" id="charactersGrid"></div>
+
+    <div class="character-detail" id="characterDetail">
+      <div class="close-detail" id="closeDetail">×</div>
+      <div id="detailContent"></div>
+    </div>
+  </div>
+
+  <script>
+    /*
+     * HOW THIS WORKS - LEARNING GUIDE:
+     * 
+     * 1. LOADING DATA:
+     *    - The page uses fetch() to load characters-data.json
+     *    - This happens asynchronously when the page loads
+     * 
+     * 2. AUTOMATIC SORTING:
+     *    - Characters are sorted alphabetically by name using .sort()
+     *    - This happens automatically - no manual sorting needed!
+     * 
+     * 3. DYNAMIC FILTERS (THE MAGIC PART):
+     *    - JavaScript scans ALL characters in the JSON
+     *    - Finds every UNIQUE value for race, status, and affiliation
+     *    - Creates filter buttons automatically for each unique value
+     *    - When you add "Seven Gods of the Teblor" to a character's affiliation...
+     *    - ...a "Seven Gods of the Teblor" filter button appears automatically!
+     * 
+     * 4. SEARCH FUNCTION:
+     *    - Searches through: name, aliases, race, affiliation, rank, nationality
+     *    - Updates results as you type (no need to press enter)
+     * 
+     * 5. TO ADD A CHARACTER:
+     *    - Open characters-data.json
+     *    - Copy the _TEMPLATE section
+     *    - Paste it into the "characters" array
+     *    - Fill in the information
+     *    - Save the file
+     *    - Refresh this page - your character appears!
+     */
+
+    let characters = [];
+    let filteredCharacters = [];
+    let selectedCharacter = null;
+    let activeFilters = {
+      race: null,
+      status: null,
+      affiliation: null
+    };
+
+    // Load character data from JSON file
+    async function loadCharacters() {
+      try {
+        const response = await fetch('characters-data.json');
+        const data = await response.json();
+        
+        // Sort characters alphabetically by name
+        characters = data.characters.sort((a, b) => a.name.localeCompare(b.name));
+        
+        filteredCharacters = [...characters];
+        
+        initFilters();
+        renderCharacters();
+      } catch (error) {
+        console.error('Error loading characters:', error);
+        document.getElementById('charactersGrid').innerHTML = 
+          '<p style="color: #d48e8e; grid-column: 1/-1; text-align: center;">Error loading character data. Make sure characters-data.json is in the same folder as this HTML file.</p>';
+      }
+    }
+
+    // Initialize filters - AUTOMATICALLY GENERATED FROM JSON DATA
+    function initFilters() {
+      /* HOW FILTERS ARE GENERATED AUTOMATICALLY:
+       * 
+       * 1. Extract all unique races:
+       *    - new Set() removes duplicates
+       *    - characters.map(c => c.race) gets all race values
+       *    - [...] converts Set back to array
+       *    - .sort() alphabetizes them
+       */
+      const races = [...new Set(characters.map(c => c.race))].sort();
+      
+      // Same process for statuses
+      const statuses = [...new Set(characters.map(c => c.status))].sort();
+      
+      /* Affiliations are trickier because some characters have multiple:
+       * - .flatMap() splits "Bridgeburners, Malazan Army" into separate values
+       * - .trim() removes extra spaces
+       * - Then we get unique values and sort
+       */
+      const affiliations = [...new Set(
+        characters.flatMap(c => c.affiliation.split(',').map(a => a.trim()))
+      )].sort();
+
+      // Create race filter buttons dynamically
+      const raceFiltersDiv = document.getElementById('raceFilters');
+      races.forEach(race => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn';
+        btn.textContent = race;
+        btn.onclick = () => toggleFilter('race', race);
+        raceFiltersDiv.appendChild(btn);
+      });
+
+      // Create status filter buttons
+      const statusFiltersDiv = document.getElementById('statusFilters');
+      statuses.forEach(status => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn';
+        btn.textContent = status;
+        btn.onclick = () => toggleFilter('status', status);
+        statusFiltersDiv.appendChild(btn);
+      });
+
+      // Create affiliation filter buttons (show first 15 to avoid overwhelming the UI)
+      const affiliationFiltersDiv = document.getElementById('affiliationFilters');
+      affiliations.slice(0, 15).forEach(affiliation => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn';
+        btn.textContent = affiliation;
+        btn.onclick = () => toggleFilter('affiliation', affiliation);
+        affiliationFiltersDiv.appendChild(btn);
+      });
+    }
+
+    function toggleFilter(type, value) {
+      // If filter is already active, turn it off. Otherwise, turn it on.
+      if (activeFilters[type] === value) {
+        activeFilters[type] = null;
+      } else {
+        activeFilters[type] = value;
+      }
+      
+      // Update button visual state
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        if (btn.textContent === value) {
+          btn.classList.toggle('active');
+        }
+      });
+      
+      filterCharacters();
+    }
+
+    function filterCharacters() {
+      const searchTerm = document.getElementById('searchBox').value.toLowerCase().trim();
+      
+      // Filter characters based on search term and active filters
+      filteredCharacters = characters.filter(char => {
+        // Search filter - checks if search term appears in any of these fields
+        const matchesSearch = !searchTerm || 
+          char.name.toLowerCase().includes(searchTerm) ||
+          char.aliases.toLowerCase().includes(searchTerm) ||
+          char.race.toLowerCase().includes(searchTerm) ||
+          char.affiliation.toLowerCase().includes(searchTerm) ||
+          char.rank.toLowerCase().includes(searchTerm) ||
+          char.nationality.toLowerCase().includes(searchTerm);
+        
+        // Race filter - character must match selected race (if any)
+        const matchesRace = !activeFilters.race || char.race === activeFilters.race;
+        
+        // Status filter
+        const matchesStatus = !activeFilters.status || char.status === activeFilters.status;
+        
+        // Affiliation filter - checks if character's affiliations include the filter
+        const matchesAffiliation = !activeFilters.affiliation || 
+          char.affiliation.toLowerCase().includes(activeFilters.affiliation.toLowerCase());
+        
+        // Character must pass ALL filters to be shown
+        return matchesSearch && matchesRace && matchesStatus && matchesAffiliation;
+      });
+      
+      renderCharacters();
+    }
+
+    function renderCharacters() {
+      const grid = document.getElementById('charactersGrid');
+      const countDiv = document.getElementById('characterCount');
+      
+      // Update character count display
+      countDiv.textContent = `Showing ${filteredCharacters.length} of ${characters.length} characters`;
+      
+      grid.innerHTML = '';
+      
+      // Create a card for each filtered character
+      filteredCharacters.forEach(char => {
+        const card = document.createElement('div');
+        card.className = 'character-card';
+        if (selectedCharacter?.name === char.name) {
+          card.classList.add('selected');
+        }
+        
+        // Clean up status for CSS class (remove spaces and parentheses)
+        const statusClass = char.status.toLowerCase().replace(/ /g, '-').replace(/\(/g, '').replace(/\)/g, '');
+        
+        card.innerHTML = `
+          <div class="character-name">${char.name}</div>
+          <div class="character-title">${char.aliases || 'No aliases'}</div>
+          <div class="character-meta">
+            <span class="meta-badge badge-race">${char.race}</span>
+            <span class="meta-badge badge-status-${statusClass}">${char.status}</span>
+            ${char.warren !== 'None' ? `<span class="meta-badge badge-warren">${char.warren.split(',')[0].trim()}</span>` : ''}
+          </div>
+        `;
+        
+        card.onclick = () => showCharacterDetail(char);
+        grid.appendChild(card);
+      });
+    }
+
+    function showCharacterDetail(char) {
+      selectedCharacter = char;
+      renderCharacters(); // Update card selection state
+      
+      const detailDiv = document.getElementById('characterDetail');
+      const contentDiv = document.getElementById('detailContent');
+      
+      // Build toggleable book sections
+      const bookEntries = Object.entries(char.books).map(([book, events]) => {
+        return `
+          <div class="book-toggle">
+            <div class="book-header" onclick="toggleBook(this)">
+              <div class="book-title">${book}</div>
+              <div class="book-arrow">▸</div>
+            </div>
+            <div class="book-content">
+              <div class="book-summary">
+                <ul>
+                  ${events.map(event => `<li>${event}</li>`).join('')}
+                </ul>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+      
+      // Populate detail view with character information
+      contentDiv.innerHTML = `
+        <div class="detail-header">
+          <h2 class="detail-name">${char.name}</h2>
+          <div class="detail-aliases">"${char.aliases || 'No other names'}"</div>
+        </div>
+        
+        <div class="detail-grid">
+          <div class="detail-section">
+            <span class="detail-label">Race:</span>
+            <p>${char.race}</p>
+            
+            <span class="detail-label">Status:</span>
+            <p>${char.status}</p>
+            
+            <span class="detail-label">Appearance:</span>
+            <p>${char.appearance}</p>
+            
+            <span class="detail-label">Special Abilities:</span>
+            <p>${char.abilities}</p>
+          </div>
+          
+          <div class="detail-section">
+            <span class="detail-label">Rank/Title:</span>
+            <p>${char.rank}</p>
+            
+            <span class="detail-label">Affiliation:</span>
+            <p>${char.affiliation}</p>
+            
+            <span class="detail-label">Warren:</span>
+            <p>${char.warren}</p>
+            
+            <span class="detail-label">Weapons:</span>
+            <p>${char.weapons}</p>
+            
+            <span class="detail-label">God/Divine Connection:</span>
+            <p>${char.god}</p>
+            
+            <span class="detail-label">Nationality/Origin:</span>
+            <p>${char.nationality}</p>
+          </div>
+        </div>
+        
+        <div class="detail-section">
+          <span class="detail-label">Relationships:</span>
+          <p>${char.relationships}</p>
+        </div>
+        
+        <div class="books-section">
+          <h3 class="books-header">JOURNEY THROUGH THE BOOKS</h3>
+          ${bookEntries}
+        </div>
+      `;
+      
+      detailDiv.classList.add('show');
+      detailDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function toggleBook(headerElement) {
+      const bookToggle = headerElement.parentElement;
+      const content = bookToggle.querySelector('.book-content');
+      const arrow = headerElement.querySelector('.book-arrow');
+      
+      const isOpen = content.classList.contains('open');
+      
+      if (isOpen) {
+        content.classList.remove('open');
+        arrow.classList.remove('open');
+      } else {
+        content.classList.add('open');
+        arrow.classList.add('open');
+      }
+    }
+
+    // Set up event listeners when page loads
+    document.getElementById('searchBox').addEventListener('input', filterCharacters);
+    
+    document.getElementById('closeDetail').addEventListener('click', () => {
+      document.getElementById('characterDetail').classList.remove('show');
+      selectedCharacter = null;
+      renderCharacters();
+    });
+
+    // Start everything!
+    loadCharacters();
+  </script>
+</body>
+</html>
