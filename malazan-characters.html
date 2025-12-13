@@ -1,0 +1,2173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malazan Character Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cinzel', 'Times New Roman', serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 50%, #16213e 100%);
+      color: #d4af37;
+      overflow-x: hidden;
+    }
+
+    .background-overlay {
+      position: fixed;
+      inset: 0;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(218, 165, 32, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .corner-ornament {
+      position: fixed;
+      width: 80px;
+      height: 80px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .corner-ornament.top-left {
+      top: 1rem;
+      left: 1rem;
+      border-top: 2px solid rgba(212, 175, 55, 0.3);
+      border-left: 2px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .corner-ornament.top-right {
+      top: 1rem;
+      right: 1rem;
+      border-top: 2px solid rgba(212, 175, 55, 0.3);
+      border-right: 2px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .container {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+      letter-spacing: 0.1em;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      font-family: 'Crimson Text', Georgia, serif;
+      font-style: italic;
+      color: #b8956f;
+      margin-bottom: 0.5rem;
+    }
+
+    .book-info {
+      font-size: 0.9rem;
+      color: #8b7355;
+      font-family: Georgia, serif;
+    }
+
+    .search-filters {
+      background: rgba(10, 10, 20, 0.7);
+      border: 2px solid rgba(212, 175, 55, 0.4);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      background: rgba(20, 20, 35, 0.8);
+      border: 2px solid rgba(212, 175, 55, 0.4);
+      border-radius: 8px;
+      color: #d4af37;
+      font-family: 'Cinzel', serif;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .search-box:focus {
+      outline: none;
+      border-color: #d4af37;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .search-box::placeholder {
+      color: rgba(212, 175, 55, 0.5);
+    }
+
+    .filters {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .filter-label {
+      font-size: 0.9rem;
+      color: #b8956f;
+      margin-right: 0.5rem;
+    }
+
+    .filter-group {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      background: rgba(20, 20, 35, 0.6);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 6px;
+      color: #b8956f;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+    }
+
+    .filter-btn:hover {
+      border-color: #d4af37;
+      color: #d4af37;
+    }
+
+    .filter-btn.active {
+      background: rgba(212, 175, 55, 0.2);
+      border-color: #d4af37;
+      color: #d4af37;
+    }
+
+    .character-count {
+      font-size: 0.9rem;
+      color: #8b7355;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-family: Georgia, serif;
+    }
+
+    .characters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .character-card {
+      background: rgba(20, 20, 35, 0.6);
+      border: 2px solid rgba(212, 175, 55, 0.3);
+      border-radius: 8px;
+      padding: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .character-card:hover {
+      border-color: #d4af37;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .character-card.selected {
+      border-color: #d4af37;
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+    }
+
+    .character-name {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #d4af37;
+      margin-bottom: 0.3rem;
+    }
+
+    .character-title {
+      font-size: 0.85rem;
+      color: #b8956f;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+      font-family: Georgia, serif;
+    }
+
+    .character-meta {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .meta-badge {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: Georgia, serif;
+    }
+
+    .badge-race { background: rgba(100, 150, 200, 0.2); color: #8eb3d4; }
+    .badge-status-alive { background: rgba(100, 200, 100, 0.2); color: #8ec98e; }
+    .badge-status-dead { background: rgba(200, 100, 100, 0.2); color: #d48e8e; }
+    .badge-status-ascended { background: rgba(200, 150, 250, 0.2); color: #c9a3e8; }
+    .badge-warren { background: rgba(212, 175, 55, 0.2); color: #d4af37; }
+
+    .character-detail {
+      background: rgba(10, 10, 20, 0.85);
+      border: 2px solid rgba(212, 175, 55, 0.5);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(10px);
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .character-detail.show {
+      display: block;
+    }
+
+    .detail-header {
+      border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .detail-name {
+      font-size: 2.5rem;
+      color: #d4af37;
+      margin-bottom: 0.5rem;
+    }
+
+    .detail-aliases {
+      font-size: 1.1rem;
+      color: #b8956f;
+      font-style: italic;
+      font-family: Georgia, serif;
+      margin-bottom: 1rem;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .detail-section {
+      font-family: Georgia, serif;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #c9b896;
+    }
+
+    .detail-label {
+      color: #d4af37;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.3rem;
+      font-family: 'Cinzel', serif;
+    }
+
+    .detail-section p {
+      margin-bottom: 1rem;
+    }
+
+    .detail-section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .detail-section li {
+      padding: 0.3rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .detail-section li:before {
+      content: "◆";
+      position: absolute;
+      left: 0;
+      color: #d4af37;
+    }
+
+    .books-section {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 2px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .books-header {
+      font-size: 1.5rem;
+      color: #d4af37;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.1em;
+    }
+
+    .book-toggle {
+      background: rgba(20, 20, 35, 0.6);
+      border: 2px solid rgba(212, 175, 55, 0.3);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .book-header {
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .book-header:hover {
+      background: rgba(212, 175, 55, 0.1);
+    }
+
+    .book-title {
+      font-size: 1.1rem;
+      color: #d4af37;
+      font-weight: bold;
+    }
+
+    .book-arrow {
+      color: #b8956f;
+      transition: transform 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .book-arrow.open {
+      transform: rotate(90deg);
+    }
+
+    .book-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .book-content.open {
+      max-height: 2000px;
+    }
+
+    .book-summary {
+      padding: 1.5rem;
+      background: rgba(10, 10, 20, 0.4);
+      font-family: Georgia, serif;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #c9b896;
+    }
+
+    .book-summary ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .book-summary li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .book-summary li:before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #d4af37;
+    }
+
+    .close-detail {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: rgba(212, 175, 55, 0.2);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #d4af37;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .close-detail:hover {
+      background: rgba(212, 175, 55, 0.3);
+      border-color: #d4af37;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 968px) {
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .characters-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-overlay"></div>
+  <div class="corner-ornament top-left"></div>
+  <div class="corner-ornament top-right"></div>
+
+  <div class="container">
+    <div class="header">
+      <h1>CHARACTER COMPENDIUM</h1>
+      <p class="subtitle">The Malazan Book of the Fallen</p>
+      <p class="book-info">Through Book III: Memories of Ice</p>
+    </div>
+
+    <div class="search-filters">
+      <input 
+        type="text" 
+        class="search-box" 
+        id="searchBox" 
+        placeholder="Search by name, alias, race, affiliation..."
+      >
+      
+      <div class="filters">
+        <span class="filter-label">Filter by Race:</span>
+        <div class="filter-group" id="raceFilters"></div>
+      </div>
+      
+      <div class="filters" style="margin-top: 1rem;">
+        <span class="filter-label">Filter by Status:</span>
+        <div class="filter-group" id="statusFilters"></div>
+      </div>
+      
+      <div class="filters" style="margin-top: 1rem;">
+        <span class="filter-label">Filter by Affiliation:</span>
+        <div class="filter-group" id="affiliationFilters"></div>
+      </div>
+    </div>
+
+    <div class="character-count" id="characterCount"></div>
+
+    <div class="characters-grid" id="charactersGrid"></div>
+
+    <div class="character-detail" id="characterDetail">
+      <div class="close-detail" id="closeDetail">×</div>
+      <div id="detailContent"></div>
+    </div>
+  </div>
+
+  <script>
+    const characters = [
+      {
+        name: "Whiskeyjack",
+        aliases: ["Sergeant Whiskeyjack"],
+        race: "Human",
+        status: "Alive",
+        appearance: "Tall, lean, weathered soldier in his forties. Dark hair with grey streaks. Carries himself with quiet authority.",
+        abilities: "Master tactician and swordsman. Former military commander.",
+        weapons: "Longsword",
+        rank: "Sergeant (formerly Commander)",
+        affiliation: "Bridgeburners",
+        nationality: "Malazan Empire",
+        god: "None (distrusts gods)",
+        warren: "None",
+        relationships: "Commands the Bridgeburners. Close to Korlat (Tiste Andii). Brother to Ganoes Paran (estranged). Friend to Dujek Onearm.",
+        books: {
+          "Gardens of the Moon": [
+            "Commands the Bridgeburners in Darujhistan campaign",
+            "Survives numerous assassination attempts",
+            "Works to prevent war in Darujhistan",
+            "Begins relationship with Korlat"
+          ],
+          "Deadhouse Gates": [
+            "Does not appear (Genabackis storyline)"
+          ],
+          "Memories of Ice": [
+            "Leads Bridgeburners in campaign against Pannion Domin",
+            "Deepens relationship with Korlat",
+            "Faces the Seer and his armies",
+            "Deals with the revelation of Silverfox's identity",
+            "Witnesses the devastating losses at Coral"
+          ]
+        }
+      },
+      {
+        name: "Kalam Mekhar",
+        aliases: ["Kalam", "Master Assassin"],
+        race: "Human (Seven Cities)",
+        status: "Alive",
+        appearance: "Tall, dark-skinned Seven Cities native. Muscular build. Shaved head. Intense, intelligent eyes.",
+        abilities: "Master assassin, exceptional fighter, Claw training. Can use Meanas (Shadow Warren) for stealth.",
+        weapons: "Long-knives, various hidden weapons, otataral",
+        rank: "Corporal (Bridgeburners), Former Claw",
+        affiliation: "Bridgeburners, Former Claw",
+        nationality: "Seven Cities (serves Malazan)",
+        god: "None specifically",
+        warren: "Meanas (limited)",
+        relationships: "Best friend to Quick Ben. Married to Minala. Close to Fiddler. Former Claw with complex past.",
+        books: {
+          "Gardens of the Moon": [
+            "Part of Whiskeyjack's squad in Darujhistan",
+            "Reveals his Claw past",
+            "Assists in thwarting Laseen's plans"
+          ],
+          "Deadhouse Gates": [
+            "Attempts to assassinate Empress Laseen",
+            "Crosses Seven Cities during rebellion",
+            "Encounters Shadowthrone and Cotillion",
+            "Faces the Talons",
+            "Meets Minala and her children",
+            "Survives the Warren of Chaos"
+          ],
+          "Memories of Ice": [
+            "Does not appear (Seven Cities storyline)"
+          ]
+        }
+      },
+      {
+        name: "Quick Ben",
+        aliases: ["Delat", "The Wizard of Twelve Warrens"],
+        race: "Human (Seven Cities)",
+        status: "Alive",
+        appearance: "Dark-skinned Seven Cities native. Lean, sharp features. Often appears unassuming but eyes betray intelligence.",
+        abilities: "Master of multiple Warrens (claims 12, actually has access to more). Incredibly powerful mage. Expert at deception and misdirection.",
+        weapons: "Magic",
+        rank: "Mage, Bridgeburners",
+        affiliation: "Bridgeburners",
+        nationality: "Seven Cities (serves Malazan)",
+        god: "Complex relationship with multiple ascendants",
+        warren: "Multiple: Meanas, Rashan, Thyr, Telas, Mockra, D'riss, Denul, and others",
+        relationships: "Best friend to Kalam. Close to Whiskeyjack. Cautious around Tayschrenn. Allied with Shadowthrone and Cotillion.",
+        books: {
+          "Gardens of the Moon": [
+            "Serves as squad mage in Darujhistan campaign",
+            "Faces off against multiple powerful mages",
+            "Crucial role in stopping the Jaghut Tyrant",
+            "Demonstrates mastery of multiple Warrens"
+          ],
+          "Deadhouse Gates": [
+            "Does not appear (Genabackis storyline)"
+          ],
+          "Memories of Ice": [
+            "Key magical support in Pannion Domin campaign",
+            "Faces the Pannion Seer's sorcery",
+            "Instrumental in battles at Capustan and Coral",
+            "Deals with Tayschrenn's presence",
+            "Witnesses the summoning of the Crippled God's influence"
+          ]
+        }
+      },
+      {
+        name: "Fiddler",
+        aliases: ["Strings"],
+        race: "Human (Malazan)",
+        status: "Alive",
+        appearance: "Weathered soldier with long mustache. Competent, reliable demeanor. Often carries his fiddle.",
+        abilities: "Expert sapper (explosives). Skilled soldier. Talented musician. Some ability with Deck of Dragons.",
+        weapons: "Crossbow, munitions, sapper tools",
+        rank: "Corporal (Bridgeburners), later Sergeant",
+        affiliation: "Bridgeburners, later Bonehunters",
+        nationality: "Malazan Empire",
+        god: "Touched by Oponn",
+        warren: "None (uses munitions)",
+        relationships: "Close to Hedge (fellow sapper). Friends with Kalam. Part of Whiskeyjack's squad. Later serves under Tavore.",
+        books: {
+          "Gardens of the Moon": [
+            "Serves in Whiskeyjack's squad",
+            "Uses sapper skills in Darujhistan",
+            "Witnesses major events in the city"
+          ],
+          "Deadhouse Gates": [
+            "Escorts refugees across Seven Cities",
+            "Travels with Kalam, Crokus, and Apsalar",
+            "Encounters the Whirlwind",
+            "Experiences the Azath house in Tremorlor",
+            "Parts ways with companions at Aren"
+          ],
+          "Memories of Ice": [
+            "Returns to Bridgeburners for Pannion campaign",
+            "Reunited with Hedge",
+            "Critical sapper work in sieges",
+            "Survives Coral but witnesses devastating losses"
+          ]
+        }
+      },
+      {
+        name: "Hedge",
+        aliases: [""],
+        race: "Human (Malazan)",
+        status: "Dead",
+        appearance: "Stocky sapper with wild hair. Always covered in soot and smelling of munitions. Cheerful despite dangerous profession.",
+        abilities: "Master sapper and explosives expert. Fearless in combat.",
+        weapons: "Munitions, sharpers, cusser, crossbow",
+        rank: "Sapper, Bridgeburners",
+        affiliation: "Bridgeburners",
+        nationality: "Malazan Empire",
+        god: "None",
+        warren: "None",
+        relationships: "Best friend and sapper partner to Fiddler. Part of the Bridgeburners squad.",
+        books: {
+          "Gardens of the Moon": [
+            "Serves as sapper in Darujhistan campaign",
+            "Works alongside Fiddler",
+            "Participates in squad operations"
+          ],
+          "Deadhouse Gates": [
+            "Does not appear (Genabackis storyline)"
+          ],
+          "Memories of Ice": [
+            "Reunited with Fiddler",
+            "Performs crucial sapper missions",
+            "Dies heroically during the assault on Coral",
+            "Sacrifices himself to destroy Seerdomin forces"
+          ]
+        }
+      },
+      {
+        name: "Trotts",
+        aliases: [""],
+        race: "Barghast",
+        status: "Alive",
+        appearance: "Large Barghast warrior with ritual scars and filed teeth. Intimidating presence.",
+        abilities: "Exceptional warrior. Barghast combat skills.",
+        weapons: "Various tribal weapons, sword",
+        rank: "Soldier, Bridgeburners",
+        affiliation: "Bridgeburners",
+        nationality: "Barghast (serves Malazan)",
+        god: "Barghast spirits",
+        warren: "None",
+        relationships: "Member of Whiskeyjack's squad. Respected by fellow Bridgeburners.",
+        books: {
+          "Gardens of the Moon": [
+            "Serves in Whiskeyjack's squad",
+            "Provides muscle in Darujhistan operations"
+          ],
+          "Deadhouse Gates": [
+            "Does not appear"
+          ],
+          "Memories of Ice": [
+            "Fights in Pannion Domin campaign",
+            "Encounters fellow Barghast",
+            "Survives the battles at Coral"
+          ]
+        }
+      },
+      {
+        name: "Anomander Rake",
+        aliases: ["Son of Darkness", "Lord of Moon's Spawn", "Knight of Darkness"],
+        race: "Tiste Andii",
+        status: "Alive",
+        appearance: "Extremely tall (7+ feet), silver-haired, silver-skinned. Ageless and impossibly ancient. Eyes like pits of darkness. Wears black draconic armor.",
+        abilities: "Soletaken (dragon form - black dragon). Master swordsman. Commands Kurald Galain (Elder Darkness). Nearly godlike power.",
+        weapons: "Dragnipur - legendary sword that imprisons souls in a wagon pulling a gate",
+        rank: "Lord of Moon's Spawn",
+        affiliation: "Tiste Andii, Moon's Spawn",
+        nationality: "Tiste Andii",
+        god: "Not a god but ascendant-level power. Son of Mother Dark",
+        warren: "Kurald Galain (Elder Warren of Darkness)",
+        relationships: "Commands the Tiste Andii. Allied with Caladan Brood. Brother to Andarist and Silchas Ruin. Ancient relationship with Draconus.",
+        books: {
+          "Gardens of the Moon": [
+            "Lords over Moon's Spawn floating fortress",
+            "Conflicts with the Malazan Empire",
+            "Faces the Jaghut Tyrant Raest",
+            "Spares Darujhistan from destruction",
+            "Complex interactions with mortal characters"
+          ],
+          "Deadhouse Gates": [
+            "Does not appear (storyline in Seven Cities)"
+          ],
+          "Memories of Ice": [
+            "Allies with the Malazans against Pannion Domin",
+            "Commands Tiste Andii in massive battles",
+            "Confronts the Crippled God's power",
+            "Critical role in siege of Coral",
+            "Dragnipur used in climactic confrontations"
+          ]
+        }
+      },
+      {
+        name: "Caladan Brood",
+        aliases: ["The Warlord"],
+        race: "Unknown (possibly T'lan Imass or ancient human)",
+        status: "Alive",
+        appearance: "Massive warrior, towering and broad. Black-bearded. Ancient beyond measure. Wields a huge hammer.",
+        abilities: "Immense physical strength. Commands earth magic. Nearly immortal. Master strategist.",
+        weapons: "Huge two-handed hammer capable of shattering continents",
+        rank: "Warlord",
+        affiliation: "Allied with Tiste Andii",
+        nationality: "Unknown/Ancient",
+        god: "Allied with Burn (sleeping goddess of the earth)",
+        warren: "Connected to earth/Burn",
+        relationships: "Allied with Anomander Rake. Commands armies against tyranny. Respectful relationship with Dujek.",
+        books: {
+          "Gardens of the Moon": [
+            "Leads armies against Malazan Empire",
+            "Allied with Moon's Spawn",
+            "Background presence in Genabackis conflicts"
+          ],
+          "Deadhouse Gates": [
+            "Does not appear"
+          ],
+          "Memories of Ice": [
+            "Allies with Malazans against Pannion Domin",
+            "Co-leads the campaign with Dujek",
+            "Demonstrates immense power at Coral",
+            "Relationship with Silverfox",
+            "Hammer plays crucial role in finale"
+          ]
+        }
+      },
+      {
+        name: "Ganoes Paran",
+        aliases: ["Captain Paran", "Master of the Deck"],
+        race: "Human",
+        status: "Alive",
+        appearance: "Young nobleman turned soldier. Noble features, lean build. Ages rapidly through experiences.",
+        abilities: "Master of the Deck of Dragons. Touched by Oponn. Connected to Hood's Path. Extraordinary resilience.",
+        weapons: "Sword, Deck of Dragons",
+        rank: "Captain (later High Fist)",
+        affiliation: "Malazan Army",
+        nationality: "Malazan Empire (noble house)",
+        god: "Touched by Oponn, connected to Hood. Master of the Deck.",
+        warren: "Access to Hood's Path (Gate of Death)",
+        relationships: "Brother to Whiskeyjack (estranged) and Tavore. Connected to Tattersail/Silverfox. Tool (complicated). Toc the Younger (friend).",
+        books: {
+          "Gardens of the Moon": [
+            "Assigned to hunt the Bridgeburners",
+            "Killed and resurrected by Oponn",
+            "Becomes Master of the Deck of Dragons",
+            "Journey through Dragnipur briefly",
+            "Sides with Bridgeburners against Tayschrenn"
+          ],
+          "Deadhouse Gates": [
+            "Does not appear (different storyline)"
+          ],
+          "Memories of Ice": [
+            "Commands forces in Pannion campaign",
+            "Relationship with Silverfox",
+            "Navigates politics of the Deck",
+            "Witnesses the Siege of Coral",
+            "Deals with Hood's influence"
+          ]
+        }
+      },
+      {
+        name: "Tattersail",
+        aliases: ["Silverfox (reborn)", "Nightchill (previous incarnation)"],
+        race: "Human (reborn as mixed)",
+        status: "Dead (reborn as Silverfox)",
+        appearance: "Large-bodied woman, overweight but powerful. Kind eyes. Later reborn as young girl with silver hair.",
+        abilities: "Powerful mage of Thyr (fire). In death, soul merged with others to become Silverfox (Summoner).",
+        weapons: "Magic (Thyr primarily)",
+        rank: "Cadre Mage",
+        affiliation: "Malazan Army, later T'lan Imass (as Silverfox)",
+        nationality: "Malazan Empire",
+        god: "None originally. As Silverfox, connected to T'lan Imass",
+        warren: "Thyr, later Tellann (as Silverfox)",
+        relationships: "Loved by Bellurdan. Connected to Hairlock. Reborn with Nightchill's soul and Tattersail's memories. Ganoes Paran (complicated).",
+        books: {
+          "Gardens of the Moon": [
+            "Serves as cadre mage in Pale and beyond",
+            "Witnesses massacre at Pale",
+            "Romance with Bellurdan (Thelomen)",
+            "Killed during conflict in Darujhistan",
+            "Soul preserved by Quick Ben's ritual"
+          ],
+          "Deadhouse Gates": [
+            "Reborn as Silverfox through ritual",
+            "Emerges as young girl with ancient knowledge"
+          ],
+          "Memories of Ice": [
+            "Appears as Silverfox - the Summoner",
+            "Commands T'lan Imass",
+            "Critical role in Pannion campaign",
+            "Relationships with Tool, Paran, Korlat",
+            "Confronts the broken T'lan Imass"
+          ]
+        }
+      },
+      {
+        name: "Tool",
+        aliases: ["Onos T'oolan", "The First Sword"],
+        race: "T'lan Imass",
+        status: "Alive (undead)",
+        appearance: "Desiccated undead warrior. Ancient stone sword. Ritualistic armor and wrappings. Flint eyes.",
+        abilities: "T'lan Imass powers - immunity to most damage, ancient warrior skills, Tellann Warren access.",
+        weapons: "Stone sword",
+        rank: "First Sword of the T'lan Imass",
+        affiliation: "T'lan Imass (later independent)",
+        nationality: "T'lan Imass",
+        god: "Served the T'lan Imass ritual",
+        warren: "Tellann",
+        relationships: "Accompanies Toc the Younger. Connection to Silverfox. Mentor to various humans. Eventually seeks to break the Ritual.",
+        books: {
+          "Gardens of the Moon": [
+            "Serves the Logros T'lan Imass",
+            "Participates in conflicts around Darujhistan",
+            "Interacts with mortal characters"
+          ],
+          "Deadhouse Gates": [
+            "Travels with Toc the Younger",
+            "Witnesses the Whirlwind",
+            "Philosophical discussions about mortality",
+            "Connection to Silverfox's emergence"
+          ],
+          "Memories of Ice": [
+            "Reunited with Silverfox",
+            "Confronts broken/rogue T'lan Imass",
+            "Pivotal role in battles",
+            "Questions the Ritual of Telann",
+            "Complex relationship with Toc the Elder"
+          ]
+        }
+      },
+      {
+        name: "Kruppe",
+        aliases: [""],
+        race: "Human",
+        status: "Alive",
+        appearance: "Rotund, well-dressed man. Affects foppish manner. Kind, twinkling eyes. Always eating pastries.",
+        abilities: "Far more than he appears. Master thief. Possible mage or touched by gods. Speaks in third person. Prophetic dreams.",
+        weapons: "Wit, charm, mysterious powers",
+        rank: "None (appears as simple thief/merchant)",
+        affiliation: "Darujhistan, K'rul's Bar",
+        nationality: "Darujhistan",
+        god: "Connected to K'rul and Elder Gods",
+        warren: "Unknown but significant",
+        relationships: "Friend to Murillio, Coll, Rallick. Agent of unknown powers. Protector of Darujhistan.",
+        books: {
+          "Gardens of the Moon": [
+            "Central figure in Darujhistan events",
+            "Manipulates events behind the scenes",
+            "Dreams of crucial information",
+            "Protects the city through mysterious means",
+            "Reveals unexpected depths of power"
+          ],
+          "Deadhouse Gates": [
+            "Does not appear (Seven Cities storyline)"
+          ],
+          "Memories of Ice": [
+            "Returns in service of mysterious purposes",
+            "Connection to Silverfox and K'rul",
+            "Continues speaking in third person",
+            "Orchestrates events from shadows"
+          ]
+        }
+      },
+      {
+        name: "Crokus Younghand",
+        aliases: ["Cutter (later name)"],
+        race: "Human",
+        status: "Alive",
+        appearance: "Young thief from Darujhistan. Lean, agile build. Dark hair. Transitions from boy to young man.",
+        abilities: "Skilled thief and climber. Growing combat abilities. Courageous beyond his years.",
+        weapons: "Knives, growing proficiency with weapons",
+        rank: "Thief (later warrior)",
+        affiliation: "Darujhistan, later travels with Apsalar",
+        nationality: "Darujhistan",
+        god: "Unwittingly connected to Oponn",
+        warren: "None",
+        relationships: "In love with Apsalar. Nephew of Mammot. Friend to Kruppe and Murillio. Uncle to Harllo.",
+        books: {
+          "Gardens of the Moon": [
+            "Young thief in Darujhistan",
+            "Touched by Oponn (Lady and Lord of Chance)",
+            "Crucial role in events involving Coinspinner",
+            "Meets and falls for Apsalar",
+            "Witnesses major events in the city"
+          ],
+          "Deadhouse Gates": [
+            "Travels with Apsalar, Fiddler, and Kalam",
+            "Matures rapidly through hardships",
+            "Crosses Seven Cities during rebellion",
+            "Protects Apsalar from her past",
+            "Takes the name 'Cutter'"
+          ],
+          "Memories of Ice": [
+            "Does not appear (different storyline)"
+          ]
+        }
+      },
+      {
+        name: "Apsalar",
+        aliases: ["Sorry", "Rope's Chosen"],
+        race: "Human",
+        status: "Alive",
+        appearance: "Young woman from fishing village. Dark hair, pale skin. Haunted eyes from possession. Graceful, deadly movements.",
+        abilities: "Possessed by Cotillion (Rope), master assassin skills remain. Enhanced reflexes and combat ability.",
+        weapons: "Knives, assassination techniques from Cotillion",
+        rank: "Former possessed assassin",
+        affiliation: "Was Shadowthrone's tool, now independent",
+        nationality: "Seven Cities (fishing village)",
+        god: "Previously possessed by Cotillion, now free but retaining abilities",
+        warren: "Some residual Meanas (Shadow) ability",
+        relationships: "Loved by Crokus/Cutter. Daughter to fisherman. Connected to Shadowthrone and Cotillion. Cared for by Fiddler and Kalam.",
+        books: {
+          "Gardens of the Moon": [
+            "Appears as 'Sorry' - possessed by Cotillion",
+            "Commits assassinations for Shadowthrone",
+            "Joins Whiskeyjack's squad",
+            "Kills many including Laseen's allies",
+            "Freed from possession at book's end"
+          ],
+          "Deadhouse Gates": [
+            "Recovering from possession as 'Apsalar'",
+            "Travels with Crokus, Fiddler, Kalam",
+            "Retains assassin skills from Cotillion",
+            "Struggles with identity and memories",
+            "Growing relationship with Crokus"
+          ],
+          "Memories of Ice": [
+            "Does not appear (different storyline)"
+          ]
+        }
+      },
+      {
+        name: "Shadowthrone",
+        aliases: ["Ammanas", "Kellanved (former Emperor)"],
+        race: "Human (Ascended)",
+        status: "Ascended",
+        appearance: "Shrouded in shadows, difficult to perceive clearly. Tall, robed figure. Eyes glint with ancient cunning.",
+        abilities: "God-level power over shadow. Master manipulator. Commands Kurald Emurlahn. Brilliant strategist.",
+        weapons: "Shadow magic, manipulation, schemes",
+        rank: "God of Shadow",
+        affiliation: "House of Shadow, Malazan Empire (formerly)",
+        nationality: "Formerly Malazan Emperor",
+        god: "Is a god (Ascended)",
+        warren: "Kurald Emurlahn (Elder Shadow)",
+        relationships: "Partner to Cotillion. Former Emperor of Malaz with Dancer. Allied with Quick Ben. Schemer against all other gods.",
+        books: {
+          "Gardens of the Moon": [
+            "Manipulates events in Darujhistan",
+            "Revealed as former Emperor Kellanved",
+            "Partnership with Cotillion (Dancer)",
+            "Schemes involving the Bridgeburners",
+            "Works against Laseen and other Ascendants"
+          ],
+          "Deadhouse Gates": [
+            "Guides various characters",
+            "Manipulates events in Seven Cities",
+            "Protects certain individuals",
+            "Schemes against the Crippled God"
+          ],
+          "Memories of Ice": [
+            "Background presence",
+            "Schemes involving the Pannion conflict",
+            "Manipulations through agents"
+          ]
+        }
+      },
+      {
+        name: "Cotillion",
+        aliases: ["Rope", "Dancer (former name)", "The Patron of Assassins"],
+        race: "Human (Ascended)",
+        status: "Ascended",
+        appearance: "Tall, lean figure dressed in black. Face often hidden. Moves with dancer's grace. Deadly elegance.",
+        abilities: "God-level assassin. Master of shadow and stealth. Exceptional warrior. Commands Meanas.",
+        weapons: "Twin long-knives, shadow magic",
+        rank: "God (Patron of Assassins)",
+        affiliation: "House of Shadow",
+        nationality: "Formerly Malazan (co-founder with Kellanved)",
+        god: "Is a god (Ascended)",
+        warren: "Meanas, Kurald Emurlahn",
+        relationships: "Partner to Shadowthrone. Former Dancer to Kellanved. Possessed Apsalar/Sorry. Connected to Apt. Allied with Quick Ben and Kalam.",
+        books: {
+          "Gardens of the Moon": [
+            "Possesses Sorry to create perfect assassin",
+            "Works with Shadowthrone on schemes",
+            "Revealed as former Dancer",
+            "Frees Apsalar from possession"
+          ],
+          "Deadhouse Gates": [
+            "Protects Kalam on his journey",
+            "Guides Fiddler and companions",
+            "Confronts the Talons",
+            "Gift of demon Apt to Crokus",
+            "Interventions at crucial moments"
+          ],
+          "Memories of Ice": [
+            "Background manipulations",
+            "Works against Crippled God's influence"
+          ]
+        }
+      },
+      {
+        name: "Duiker",
+        aliases: ["Imperial Historian"],
+        race: "Human",
+        status: "Alive",
+        appearance: "Older man, weathered by campaigns. Grey-haired. Sharp, observant eyes. Scholar's bearing with soldier's experience.",
+        abilities: "Historian, chronicler. Some basic Denul (healing) ability. Military tactical knowledge.",
+        weapons: "Minimal combat skills, sword",
+        rank: "Imperial Historian",
+        affiliation: "Malazan Empire",
+        nationality: "Malazan Empire",
+        god: "None",
+        warren: "Denul (very limited)",
+        relationships: "Accompanies Coltaine. Friend to Kulp. Records the Chain of Dogs. Respected by soldiers.",
+        books: {
+          "Gardens of the Moon": [
+            "Does not appear"
+          ],
+          "Deadhouse Gates": [
+            "Assigned to Seven Cities during Whirlwind Rebellion",
+            "Chronicles the Chain of Dogs",
+            "Travels with Coltaine's army",
+            "Witnesses the Wickan sacrifice",
+            "Survives to tell the tale",
+            "Nearly executed at Aren"
+          ],
+          "Memories of Ice": [
+            "Does not appear (different theater)"
+          ]
+        }
+      },
+      {
+        name: "Coltaine",
+        aliases: ["Fist Coltaine"],
+        race: "Human (Wickan)",
+        status: "Dead",
+        appearance: "Lean Wickan warrior. Weathered, tattooed face. Black hair with fetishes. Eyes like a raptor. Radiates command presence.",
+        abilities: "Brilliant military commander. Master of cavalry tactics. Wickan warlock abilities.",
+        weapons: "Wickan weapons, lance, bow",
+        rank: "Fist (High Commander)",
+        affiliation: "Malazan Empire, Wickan tribes",
+        nationality: "Wickan",
+        god: "Wickan spirits/ancestors",
+        warren: "Wickan spirit magic",
+        relationships: "Commands the 7th Army. Respect from Duiker. Leads the Wickan clans. Connected to Sormo E'nath.",
+        books: {
+          "Gardens of the Moon": [
+            "Does not appear"
+          ],
+          "Deadhouse Gates": [
+            "Commands defense of Seven Cities",
+            "Leads the legendary Chain of Dogs",
+            "Protects tens of thousands of refugees",
+            "Brilliant tactical retreats across continent",
+            "Crucified at Aren after heroic campaign",
+            "Becomes legend in death"
+          ],
+          "Memories of Ice": [
+            "Does not appear (story in Seven Cities)"
+          ]
+        }
+      },
+      {
+        name: "Felisin Paran",
+        aliases: ["Sha'ik Reborn", "Sha'ik the Younger"],
+        race: "Human",
+        status: "Alive",
+        appearance: "Young noblewoman turned hardened survivor. Once beautiful, scarred by slavery and durhang addiction. Transforms into fierce rebel leader.",
+        abilities: "Becomes vessel for Whirlwind Goddess. Commands Apocalypse (fragment of Tellan Warren). Growing into powerful magical abilities.",
+        weapons: "Magic, command of rebel armies",
+        rank: "Sha'ik Reborn (rebel leader)",
+        affiliation: "Whirlwind Rebellion, Apocalypse",
+        nationality: "Malazan (House Paran), later rebel",
+        god: "Vessel for the Whirlwind Goddess",
+        warren: "Whirlwind/Apocalypse (Tellan fragment)",
+        relationships: "Sister to Ganoes Paran and Tavore Paran. Companions with Heboric and Baudin (deceased). Protected by Leoman and Toblakai.",
+        books: {
+          "Gardens of the Moon": [
+            "Mentioned as Paran's younger sister"
+          ],
+          "Deadhouse Gates": [
+            "Arrested and sent to Otataral mines",
+            "Suffers horrific abuse and slavery",
+            "Travels with Heboric and Baudin",
+            "Becomes addicted to durhang",
+            "Transformed by Whirlwind Goddess",
+            "Becomes Sha'ik Reborn",
+            "Leads the rebellion by book's end"
+          ],
+          "Memories of Ice": [
+            "Does not appear (but leads rebellion in background)"
+          ]
+        }
+      },
+      {
+        name: "Heboric Ghost Hands",
+        aliases: ["Heboric Light Touch (former)", "Defrocked Priest"],
+        race: "Human",
+        status: "Alive",
+        appearance: "Former priest, had hands severed for thievery. Older man, tattooed across his body. Where his hands should be, spectral jade-green ghost hands appear.",
+        abilities: "Scholar of ancient history. Ghost hands grant strange powers - can touch across time/space. Connected to ancient gods. Sees through Otataral.",
+        weapons: "Ghost hands (can manipulate reality)",
+        rank: "Former priest, historian",
+        affiliation: "Former priest of Fener",
+        nationality: "Malazan",
+        god: "Former priest of Fener. Touched by Treach, Fener, and ancient Jade Giants.",
+        warren: "Connected to Jade giants and ancient powers",
+        relationships: "Travels with Felisin and Baudin. Connected to Fener (complicated). Guided by ancient spirits.",
+        books: {
+          "Gardens of the Moon": [
+            "Does not appear"
+          ],
+          "Deadhouse Gates": [
+            "Imprisoned and sent to Otataral mines",
+            "Hands severed, replaced by ghost hands",
+            "Travels with Felisin across Seven Cities",
+            "Ghost hands manifest with strange powers",
+            "Witnesses Felisin's transformation",
+            "Touched by multiple gods and ancient forces",
+            "Survives to continue mysterious journey"
+          ],
+          "Memories of Ice": [
+            "Does not appear (Seven Cities storyline)"
+          ]
+        }
+      },
+      {
+        name: "Icarium",
+        aliases: ["The Maker", "Lifestealer"],
+        race: "Half Jaghut",
+        status: "Alive",
+        appearance: "Tall, grey-skinned with Jaghut features. Gentle manner belying terrible power. Ancient beyond measure. Wields a beautifully crafted bow.",
+        abilities: "When enraged, becomes unstoppable destroyer. Can destroy entire civilizations. Creates magnificent mechanical works. Master warrior. Doesn't remember his rages.",
+        weapons: "Composite bow of tremendous power, sword",
+        rank: "Ancient wanderer",
+        affiliation: "Travels with Mappo",
+        nationality: "Half-Jaghut (ancient)",
+        god: "Not a god but possesses god-level destructive power when enraged",
+        warren: "Unknown/ancient Jaghut powers",
+        relationships: "Bound to Mappo Runt (guardian/companion). Searches for his own lost memories. Created the mechanisms in Tremorlor.",
+        books: {
+          "Gardens of the Moon": [
+            "Does not appear"
+          ],
+          "Deadhouse Gates": [
+            "Travels across Seven Cities with Mappo",
+            "Hunted by various powers",
+            "Seeks answers about his past",
+            "Encounters the Azath house at Tremorlor",
+            "His rage is nearly triggered multiple times",
+            "Ancient mechanisms at Tremorlor revealed as his work"
+          ],
+          "Memories of Ice": [
+            "Arrives in Capustan region",
+            "Continues journey with Mappo",
+            "His rage triggered during Pannion battles",
+            "Devastating destruction when fully enraged"
+          ]
+        }
+      },
+      {
+        name: "Mappo Runt",
+        aliases: ["Mappo Trell"],
+        race: "Trell",
+        status: "Alive",
+        appearance: "Massive Trell warrior. Grey-green skin, bestial features. Gentle eyes despite fearsome appearance. Ancient.",
+        abilities: "Tremendous physical strength. Master warrior. Magical abilities related to earth. Bound by ancient vow.",
+        weapons: "Massive weapons, earth magic",
+        rank: "Guardian to Icarium",
+        affiliation: "Bound to Icarium",
+        nationality: "Trell",
+        god: "None, but bound by ancient vow",
+        warren: "Connected to earth",
+        relationships: "Sworn guardian and only friend to Icarium. Prevents Icarium from learning his true nature. Tragic duty to protect world from his ward.",
+        books: {
+          "Gardens of the Moon": [
+            "Does not appear"
+          ],
+          "Deadhouse Gates": [
+            "Travels with Icarium",
+            "Protects Icarium from those who would use him",
+            "Prevents Icarium from remembering his rages",
+            "Encounters at Tremorlor",
+            "Continues ancient, lonely vigil"
+          ],
+          "Memories of Ice": [
+            "Continues protecting Icarium",
+            "Witnesses Icarium's rage unleashed",
+            "Suffers seeing his friend become destroyer",
+            "Stays loyal despite terrible cost"
+          ]
+        }
+      },
+      {
+        name: "Iskaral Pust",
+        aliases: ["High Priest of Shadow"],
+        race: "Human",
+        status: "Alive",
+        appearance: "Seemingly mad, disheveled priest. Wild-eyed. Constantly muttering to himself. Covered in filth. Rides a mule named Mogora.",
+        abilities: "High Priest of Shadow with significant power. Master of Meanas. Brilliant strategist hidden beneath madness. Can manipulate reality.",
+        weapons: "Shadow magic, manipulation, mule",
+        rank: "High Priest of Shadow",
+        affiliation: "House of Shadow, Shadowthrone",
+        nationality: "Unknown",
+        god: "Serves Shadowthrone",
+        warren: "Meanas (Shadow), Kurald Emurlahn",
+        relationships: "Servant of Shadowthrone. Master of Tremorlor Azath House. Married to Mogora. Interacts with many travelers.",
+        books: {
+          "Gardens of the Moon": [
+            "Does not appear"
+          ],
+          "Deadhouse Gates": [
+            "Guardian of Tremorlor Azath House",
+            "Hosts various characters at Tremorlor",
+            "Seemingly insane but highly capable",
+            "Manipulates events for Shadowthrone",
+            "Provides crucial assistance while appearing mad",
+            "Married to demon/familiar Mogora"
+          ],
+          "Memories of Ice": [
+            "Continues serving Shadow's purposes",
+            "Appears at crucial moments",
+            "Madness may be performance"
+          ]
+        }
+      },
+      {
+        name: "Toc the Younger",
+        aliases: ["Toc Anaster (possessed name)", "The Seerdomin"],
+        race: "Human",
+        status: "Complicated (possessed, transformed)",
+        appearance: "Young scout with one eye. Lean, capable build. After possession - transformed into Seerdomin with restored eyes and terrible power.",
+        abilities: "Excellent scout and archer before possession. As Seerdomin - undead powers and command over Seer's forces.",
+        weapons: "Bow, later Seerdomin weapons and magic",
+        rank: "Scout, later Seerdomin",
+        affiliation: "Malazan Army, later Pannion Domin (unwillingly)",
+        nationality: "Malazan",
+        god: "Possessed by the Pannion Seer",
+        warren: "None originally, later Seer's powers",
+        relationships: "Son of Toc the Elder. Friend to Paran, Tool, and others. Tragic fate of possession and transformation.",
+        books: {
+          "Gardens of the Moon": [
+            "Malazan scout and outrider",
+            "Loses an eye in Pale disaster",
+            "Associates with Paran and others",
+            "Loyal and capable soldier"
+          ],
+          "Deadhouse Gates": [
+            "Travels with Tool",
+            "Experiences Seven Cities rebellion",
+            "Growing friendship with the T'lan Imass",
+            "Philosophical journey"
+          ],
+          "Memories of Ice": [
+            "Captured by Pannion Domin",
+            "Possessed and transformed into Seerdomin",
+            "Eyes restored but corrupted",
+            "Serves the Seer unwillingly",
+            "Tragic confrontation with former friends",
+            "Tool forced to face possessed Toc"
+          ]
+        }
+      },
+      {
+        name: "Dujek Onearm",
+        aliases: ["High Fist Onearm"],
+        race: "Human",
+        status: "Alive",
+        appearance: "Grizzled veteran commander. Missing one arm. Grey-haired, scarred. Commands absolute respect. Wise, weathered features.",
+        abilities: "Brilliant military strategist. Legendary commander. Tactical genius.",
+        weapons: "Sword (one-handed)",
+        rank: "High Fist",
+        affiliation: "Malazan Empire (officially disowned, secretly loyal)",
+        nationality: "Malazan Empire",
+        god: "None",
+        warren: "None",
+        relationships: "Commands the Host. Father-figure to Whiskeyjack. Ally to Caladan Brood. Respected by Anomander Rake. Secretly still loyal to Laseen.",
+        books: {
+          "Gardens of the Moon": [
+            "Commands Malazan forces in Genabackis",
+            "Officially outlawed by Empress Laseen",
+            "Secretly still serves Empire's interests",
+            "Works with Whiskeyjack"
+          ],
+          "Deadhouse Gates": [
+            "Does not appear (Genabackis storyline)"
+          ],
+          "Memories of Ice": [
+            "Co-commands alliance against Pannion Domin",
+            "Works with Caladan Brood",
+            "Commands siege operations",
+            "Political maneuvering with Whiskeyjack",
+            "Deals with High Mage Tayschrenn's arrival"
+          ]
+        }
+      },
+      {
+        name: "Tayschrenn",
+        aliases: ["High Mage"],
+        race: "Human",
+        status: "Alive",
+        appearance: "Bald, powerful build. Intimidating presence. Scarred from magical combat. Cold, calculating eyes.",
+        abilities: "Enormously powerful High Mage. Master of Thyr and other Warrens. Second only to Empress in Imperial hierarchy.",
+        weapons: "Multiple Warrens, primarily Thyr",
+        rank: "High Mage of the Malazan Empire",
+        affiliation: "Malazan Empire, loyal to Empress Laseen",
+        nationality: "Malazan Empire",
+        god: "None",
+        warren: "Thyr, Mockra, and others",
+        relationships: "Serves Empress Laseen. Complex relationship with Bridgeburners. Feared by most. Quick Ben is wary of him. Dujek works with him pragmatically.",
+        books: {
+          "Gardens of the Moon": [
+            "Primary antagonist to Bridgeburners",
+            "Responsible for Pale disaster",
+            "Hunting the squad in Darujhistan",
+            "Revealed to have complex motives",
+            "Faces down multiple powerful mages"
+          ],
+          "Deadhouse Gates": [
+            "Does not appear"
+          ],
+          "Memories of Ice": [
+            "Joins the Pannion campaign",
+            "Uneasy alliance with Quick Ben",
+            "Demonstrates immense power",
+            "More complexity to his character revealed",
+            "Critical role in battles at Coral"
+          ]
+        }
+      },
+      {
+        name: "Korlat",
+        aliases: [""],
+        race: "Tiste Andii",
+        status: "Alive",
+        appearance: "Beautiful Tiste Andii woman. Silver skin, black hair. Ancient and elegant. Warrior's bearing with sorceress power.",
+        abilities: "Powerful mage of Kurald Galain. Skilled warrior. Ancient Tiste Andii knowledge and abilities.",
+        weapons: "Sword, Kurald Galain magic",
+        rank: "Commander in Anomander Rake's forces",
+        affiliation: "Tiste Andii, Moon's Spawn",
+        nationality: "Tiste Andii",
+        god: "Serves Anomander Rake",
+        warren: "Kurald Galain (Elder Darkness)",
+        relationships: "Lover of Whiskeyjack. Sister to Orfantal and Hornet. Serves Anomander Rake. Connected to Silverfox.",
+        books: {
+          "Gardens of the Moon": [
+            "Appears as Tiste Andii commander",
+            "Meets Whiskeyjack",
+            "Participates in Darujhistan events"
+          ],
+          "Deadhouse Gates": [
+            "Does not appear"
+          ],
+          "Memories of Ice": [
+            "Deep relationship with Whiskeyjack",
+            "Commands Tiste Andii forces in campaign",
+            "Deals with mortality of human lover",
+            "Critical role in battles",
+            "Connection to Silverfox and ancient history"
+          ]
+        }
+      },
+      {
+        name: "Picker",
+        aliases: [""],
+        race: "Human",
+        status: "Alive",
+        appearance: "Female Bridgeburner sergeant. Tough, capable, no-nonsense demeanor. Scarred veteran.",
+        abilities: "Excellent soldier and squad leader. Tough as nails.",
+        weapons: "Sword, military weapons",
+        rank: "Sergeant, Bridgeburners",
+        affiliation: "Bridgeburners",
+        nationality: "Malazan Empire",
+        god: "None",
+        warren: "None",
+        relationships: "Commands a squad. Close to other Bridgeburners. Respected by Whiskeyjack. Partner with Blend.",
+        books: {
+          "Gardens of the Moon": [
+            "Serves as Bridgeburner sergeant",
+            "Participates in Darujhistan campaign",
+            "Squad operations"
+          ],
+          "Deadhouse Gates": [
+            "Does not appear"
+          ],
+          "Memories of Ice": [
+            "Continues as squad sergeant",
+            "Fights in Pannion campaign",
+            "Survives the brutal battles",
+            "Leadership role in squad"
+          ]
+        }
+      },
+      {
+        name: "Blend",
+        aliases: [""],
+        race: "Human",
+        status: "Alive",
+        appearance: "Female Bridgeburner. Unremarkable appearance - her gift. Easy to overlook. Capable soldier.",
+        abilities: "Supernatural ability to be overlooked and forgotten. Excellent infiltrator. Skilled soldier.",
+        weapons: "Military weapons, stealth",
+        rank: "Soldier, Bridgeburners",
+        affiliation: "Bridgeburners",
+        nationality: "Malazan Empire",
+        god: "None (possibly touched by something)",
+        warren: "None, but mysterious ability",
+        relationships: "Close to Picker. Part of Bridgeburner squads. Valued for unique abilities.",
+        books: {
+          "Gardens of the Moon": [
+            "Serves with Bridgeburners",
+            "Uses her overlooked nature for scouting"
+          ],
+          "Deadhouse Gates": [
+            "Does not appear"
+          ],
+          "Memories of Ice": [
+            "Continues serving Bridgeburners",
+            "Unique abilities prove valuable",
+            "Survives campaign"
+          ]
+        }
+      },
+      {
+        name: "Antsy",
+        aliases: [""],
+        race: "Human",
+        status: "Alive",
+        appearance: "Bridgeburner sergeant. Nervous energy, hence the name. Fidgets constantly. Capable despite anxious demeanor.",
+        abilities: "Experienced soldier and sergeant. Reliable despite nervous habits.",
+        weapons: "Military weapons",
+        rank: "Sergeant, Bridgeburners",
+        affiliation: "Bridgeburners",
+        nationality: "Malazan Empire",
+        god: "None",
+        warren: "None",
+        relationships: "Squad leader in Bridgeburners. Comrades with other veterans.",
+        books: {
+          "Gardens of the Moon": [
+            "Serves as sergeant in campaign"
+          ],
+          "Deadhouse Gates": [
+            "Does not appear"
+          ],
+          "Memories of Ice": [
+            "Continues leadership role",
+            "Participates in major battles",
+            "Nervous energy remains his trademark"
+          ]
+        }
+      },
+      {
+        name: "Mallet",
+        aliases: [""],
+        race: "Human",
+        status: "Alive",
+        appearance: "Bridgeburner healer. Solid, dependable build. Calm demeanor essential for his role.",
+        abilities: "Skilled healer using Denul Warren. Combat capable. Steady under pressure.",
+        weapons: "Healer's tools, basic combat weapons",
+        rank: "Healer, Bridgeburners",
+        affiliation: "Bridgeburners",
+        nationality: "Malazan Empire",
+        god: "None",
+        warren: "Denul (Healing)",
+        relationships: "Squad healer. Essential support to Bridgeburners. Trusted by all.",
+        books: {
+          "Gardens of the Moon": [
+            "Serves as squad healer",
+            "Critical medical support"
+          ],
+          "Deadhouse Gates": [
+            "Does not appear"
+          ],
+          "Memories of Ice": [
+            "Continues vital healing role",
+            "Overwhelmed by casualties at Coral",
+            "Maintains composure in horror"
+          ]
+        }
+      },
+      {
+        name: "Spindle",
+        aliases: [""],
+        race: "Human",
+        status: "Alive",
+        appearance: "Bridgeburner squad mage. Nervous disposition. Quick movements and speech.",
+        abilities: "Squad-level mage. Capable with various Warrens. Adequate combat skills.",
+        weapons: "Magic, basic weapons",
+        rank: "Mage, Bridgeburners",
+        affiliation: "Bridgeburners",
+        nationality: "Malazan Empire",
+        god: "None",
+        warren: "Multiple (squad mage level)",
+        relationships: "Squad mage for Bridgeburners. Works with other squad members.",
+        books: {
+          "Gardens of the Moon": [
+            "Serves as squad mage"
+          ],
+          "Deadhouse Gates": [
+            "Does not appear"
+          ],
+          "Memories of Ice": [
+            "Provides magical support",
+            "Survives brutal campaign",
+            "Magical abilities tested to limit"
+          ]
+        }
+      },
+      {
+        name: "Murillio",
+        aliases: [""],
+        race: "Human",
+        status: "Alive",
+        appearance: "Handsome nobleman and duelist from Darujhistan. Well-dressed, refined manner. Skilled with rapier.",
+        abilities: "Master duelist. Charming, diplomatic. Some ability with Deck of Dragons.",
+        weapons: "Rapier, dueling weapons",
+        rank: "Nobleman",
+        affiliation: "Darujhistan, K'rul's Bar circle",
+        nationality: "Darujhistan",
+        god: "None",
+        warren: "None",
+        relationships: "Friend to Kruppe, Rallick, Coll. Protector of Crokus. Part of Darujhistan's social elite.",
+        books: {
+          "Gardens of the Moon": [
+            "Key figure in Darujhistan events",
+            "Dueling skills prove crucial",
+            "Protects friends and city",
+            "Involved in major confrontations"
+          ],
+          "Deadhouse Gates": [
+            "Does not appear"
+          ],
+          "Memories of Ice": [
+            "Returns in Darujhistan",
+            "Continues protecting his city"
+          ]
+        }
+      },
+      {
+        name: "Rallick Nom",
+        aliases: [""],
+        race: "Human",
+        status: "Alive",
+        appearance: "Assassin from Darujhistan. Dark clothing, quiet demeanor. Deadly efficient.",
+        abilities: "Master assassin. Expert with various weapons. Stealth and infiltration specialist.",
+        weapons: "Assassin's weapons, daggers, crossbow",
+        rank: "Assassin",
+        affiliation: "Assassins' Guild (former), K'rul's Bar circle",
+        nationality: "Darujhistan",
+        god: "None",
+        warren: "None",
+        relationships: "Friend to Kruppe and Murillio. Complex relationship with Vorcan. Love interest in city.",
+        books: {
+          "Gardens of the Moon": [
+            "Contract killer in Darujhistan",
+            "Involved in city's political violence",
+            "Key role in protecting friends",
+            "Confrontations with Vorcan"
+          ],
+          "Deadhouse Gates": [
+            "Does not appear"
+          ],
+          "Memories of Ice": [
+            "Continues life in Darujhistan",
+            "Protects his city from shadows"
+          ]
+        }
+      },
+      {
+        name: "Coll",
+        aliases: [""],
+        race: "Human",
+        status: "Alive",
+        appearance: "Nobleman of Darujhistan. Formerly wealthy, now less so. Still maintains nobility. Friend to outcasts.",
+        abilities: "Combat capable. Political connections. Loyal friend.",
+        weapons: "Sword",
+        rank: "Nobleman",
+        affiliation: "Darujhistan, K'rul's Bar circle",
+        nationality: "Darujhistan",
+        god: "None",
+        warren: "None",
+        relationships: "Close friend to Kruppe, Murillio, Rallick. Part of the city's hidden defenders.",
+        books: {
+          "Gardens of the Moon": [
+            "Supports friends in city's defense",
+            "Noble connections prove useful",
+            "Loyal to Darujhistan"
+          ],
+          "Deadhouse Gates": [
+            "Does not appear"
+          ],
+          "Memories of Ice": [
+            "Continues protecting Darujhistan",
+            "Maintains friendships"
+          ]
+        }
+      },
+      {
+        name: "The Pannion Seer",
+        aliases: ["Anaster (host body)", "The Seer"],
+        race: "Human (possessed)",
+        status: "Dead",
+        appearance: "Young man possessed by ancient entity. Eyes vacant yet terrifying. Speaks with voice of thousands.",
+        abilities: "Immense magical power. Commands armies of the insane. Corrupts and dominates minds. Connected to Crippled God.",
+        weapons: "Mind control, massive magical power, undead armies",
+        rank: "God-Emperor of Pannion Domin",
+        affiliation: "Pannion Domin",
+        nationality: "Possessed host",
+        god: "Avatar of aspect of the Crippled God",
+        warren: "Corrupted power from Crippled God",
+        relationships: "Commands Seerdomin. Master of Pannion Domin. Enemy of all free peoples.",
+        books: {
+          "Gardens of the Moon": [
+            "Does not appear"
+          ],
+          "Deadhouse Gates": [
+            "Mentioned as rising threat",
+            "Empire of insanity grows"
+          ],
+          "Memories of Ice": [
+            "Primary antagonist",
+            "Commands massive armies of the mad",
+            "Possesses incredible power",
+            "Revealed as fragment of Crippled God",
+            "Defeated at Coral",
+            "True nature revealed in climax"
+          ]
+        }
+      },
+      {
+        name: "Silverfox",
+        aliases: ["Nightchill and Tattersail Reborn", "The Summoner"],
+        race: "Human (reborn, mixed souls)",
+        status: "Alive",
+        appearance: "Young girl-woman with silver hair. Ancient eyes in young face. Possesses three souls' memories. Appears as teenager but holds millennia of knowledge.",
+        abilities: "Commands the T'lan Imass as Summoner. Access to Tellann and other ancient powers. Memories of Tattersail, Nightchill, and original Silverfox.",
+        weapons: "Command of T'lan Imass, ancient magic",
+        rank: "The Summoner (Bonecaster supreme)",
+        affiliation: "T'lan Imass",
+        nationality: "Reborn entity",
+        god: "Not a god but commands ancient undead race",
+        warren: "Tellann primarily, plus others",
+        relationships: "Tattersail's soul merged with Nightchill. Paran (complicated). Tool (complex). Whiskeyjack (as Tattersail's memory). Korlat (ancient connection).",
+        books: {
+          "Gardens of the Moon": [
+            "Tattersail dies, soul preserved",
+            "Ritual creates Silverfox"
+          ],
+          "Deadhouse Gates": [
+            "Born from ritual merging souls",
+            "Rapidly matures",
+            "Begins to understand her nature"
+          ],
+          "Memories of Ice": [
+            "Appears as The Summoner",
+            "Commands T'lan Imass armies",
+            "Gathers the broken T'lan Imass",
+            "Critical role in war against Pannion",
+            "Deals with three sets of memories",
+            "Relationship with Paran",
+            "Confronts destiny of the Imass"
+          ]
+        }
+      },
+      {
+        name: "Lorn",
+        aliases: ["Adjunct Lorn"],
+        race: "Human",
+        status: "Dead",
+        appearance: "Tall, beautiful woman. Cold demeanor. Imperial bearing. Carries an Otataral sword.",
+        abilities: "Exceptional warrior and commander. Wields Otataral sword that negates magic. Absolute loyalty to Empire.",
+        weapons: "Otataral longsword (magic-negating)",
+        rank: "Adjunct to the Empress",
+        affiliation: "Malazan Empire, directly serves Empress Laseen",
+        nationality: "Malazan Empire",
+        god: "None (Otataral prevents divine influence)",
+        warren: "None (Otataral prevents Warren use)",
+        relationships: "Serves Empress Laseen directly. Accompanied by Tool. Enemy of Bridgeburners. Worked with young Paran.",
+        books: {
+          "Gardens of the Moon": [
+            "Hunts the Bridgeburners on Empress's orders",
+            "Seeks to prevent resurrection of Jaghut Tyrant",
+            "Travels with Tool",
+            "Complex mission to Darujhistan",
+            "Dies fighting the Jaghut Tyrant",
+            "Final act saves the city"
+          ],
+          "Deadhouse Gates": [
+            "Does not appear (deceased)"
+          ],
+          "Memories of Ice": [
+            "Does not appear (deceased)"
+          ]
+        }
+      },
+      {
+        name: "Tavore Paran",
+        aliases: ["Adjunct Tavore"],
+        race: "Human",
+        status: "Alive",
+        appearance: "Emotionless, cold exterior. Noble bearing. Thin, severe features. Wields an Otataral sword like Lorn before her.",
+        abilities: "Brilliant military commander. Exceptional with Otataral sword. Strategic genius. Absolutely disciplined.",
+        weapons: "Otataral longsword",
+        rank: "Adjunct to the Empress",
+        affiliation: "Malazan Empire, serves Empress Laseen",
+        nationality: "Malazan Empire (House Paran)",
+        god: "None (Otataral prevents influence)",
+        warren: "None (Otataral prevents access)",
+        relationships: "Sister to Ganoes Paran and Felisin Paran. Commands the Bonehunters (14th Army). Distant from family. Absolute loyalty to Empress.",
+        books: {
+          "Gardens of the Moon": [
+            "Mentioned briefly as sister"
+          ],
+          "Deadhouse Gates": [
+            "Becomes new Adjunct after Lorn",
+            "Arrives in Seven Cities",
+            "Witnesses Chain of Dogs aftermath",
+            "Forms the Bonehunters from survivors",
+            "Cold, calculating commander",
+            "Begins campaign against rebellion"
+          ],
+          "Memories of Ice": [
+            "Does not appear (Seven Cities theater)"
+          ]
+        }
+      },
+      {
+        name: "Kulp",
+        aliases: [""],
+        race: "Human",
+        status: "Dead",
+        appearance: "Weathered soldier-mage. Competent but not exceptional. Practical demeanor.",
+        abilities: "Mage of Serc (Sky Warren). Adequate combat skills. Military experience.",
+        weapons: "Serc Warren (weather/sky), sword",
+        rank: "Cadre Mage, 7th Army",
+        affiliation: "Malazan Army",
+        nationality: "Malazan Empire",
+        god: "None",
+        warren: "Serc (Sky)",
+        relationships: "Accompanies Duiker. Friend to historian. Serves in 7th Army under Coltaine.",
+        books: {
+          "Gardens of the Moon": [
+            "Does not appear"
+          ],
+          "Deadhouse Gates": [
+            "Assigned to Seven Cities",
+            "Travels with Duiker",
+            "Provides magical support",
+            "Dies heroically protecting refugees during Chain of Dogs"
+          ],
+          "Memories of Ice": [
+            "Does not appear (deceased)"
+          ]
+        }
+      },
+      {
+        name: "Baudin",
+        aliases: [""],
+        race: "Human",
+        status: "Dead",
+        appearance: "Large, brutal-looking man. Criminal background. Surprisingly complex character beneath thuggish exterior.",
+        abilities: "Exceptional fighter. Survival skills. Hidden depths of loyalty.",
+        weapons: "Various weapons, bare hands",
+        rank: "Criminal (secretly Claw agent)",
+        affiliation: "Secretly Claw, accompanying Felisin",
+        nationality: "Malazan",
+        god: "None",
+        warren: "None",
+        relationships: "Guards Felisin. Travels with Heboric. Loyal despite harsh appearance. Dies protecting Felisin.",
+        books: {
+          "Gardens of the Moon": [
+            "Does not appear"
+          ],
+          "Deadhouse Gates": [
+            "Imprisoned with Felisin and Heboric",
+            "Protects Felisin through Otataral mines",
+            "Revealed as Claw agent on protection detail",
+            "Dies saving Felisin from attack",
+            "Sacrifice reveals true loyalty"
+          ],
+          "Memories of Ice": [
+            "Does not appear (deceased)"
+          ]
+        }
+      },
+      {
+        name: "Leoman",
+        aliases: ["Leoman of the Flails"],
+        race: "Human (Seven Cities)",
+        status: "Alive",
+        appearance: "Desert warrior. Lean, hard features. Carries flails. Intelligent, deadly, charismatic leader.",
+        abilities: "Master warrior with flails. Desert survival. Brilliant tactician. Commands loyalty.",
+        weapons: "Paired flails, desert weapons",
+        rank: "Captain/Commander under Sha'ik",
+        affiliation: "Whirlwind Rebellion, serves Sha'ik Reborn",
+        nationality: "Seven Cities",
+        god: "Serves Whirlwind Goddess through Sha'ik",
+        warren: "None personally",
+        relationships: "Loyal to Sha'ik Reborn (Felisin). Commands respect. Allied with Toblakai. Deadly enemy of Empire.",
+        books: {
+          "Gardens of the Moon": [
+            "Does not appear"
+          ],
+          "Deadhouse Gates": [
+            "Emerges as key rebel commander",
+            "Protects Sha'ik Reborn",
+            "Brilliant tactical mind",
+            "Leads guerrilla warfare against Empire"
+          ],
+          "Memories of Ice": [
+            "Does not appear (leads rebellion in background)"
+          ]
+        }
+      },
+      {
+        name: "Karsa Orlong",
+        aliases: ["Toblakai", "Warrior of the Teblor"],
+        race: "Teblor (giant race)",
+        status: "Alive",
+        appearance: "Massive warrior, over 7 feet tall. Primitive but learning. Immense physical presence. Bronze skin, filed teeth.",
+        abilities: "Superhuman strength and endurance. Master of violence. Growing intelligence. Unbreakable will.",
+        weapons: "Massive wooden sword (later stone/metal), Teblor weapons",
+        rank: "Warrior",
+        affiliation: "Teblor, later independent/rebel",
+        nationality: "Teblor tribes",
+        god: "Rejects all gods. Will witness their deaths.",
+        warren: "None",
+        relationships: "Enslaved, escapes. Allied with Sha'ik/Leoman. Sworn to destroy civilization. Complex journey from savage to complex character.",
+        books: {
+          "Gardens of the Moon": [
+            "Does not appear"
+          ],
+          "Deadhouse Gates": [
+            "Mentioned but does not appear"
+          ],
+          "Memories of Ice": [
+            "Does not appear"
+          ]
+        }
+      },
+      {
+        name: "Gruntle",
+        aliases: ["Mortal Sword of Trake"],
+        race: "Human",
+        status: "Alive",
+        appearance: "Caravan guard. Striped hair and skin markings after becoming Mortal Sword. Becoming tiger-like. Massive build.",
+        abilities: "Extraordinary warrior blessed by Trake. Transforming into tiger aspect. Superhuman combat abilities. Soletaken (tiger).",
+        weapons: "Twin cutlasses, later claws",
+        rank: "Mortal Sword of Trake (Tiger of War)",
+        affiliation: "Servants of Trake",
+        nationality: "Various",
+        god: "Chosen by Trake (Tiger of War)",
+        warren: "Connected to Trake",
+        relationships: "Protects caravans. Blessed/cursed by Trake. Partnership with Stonny and Harllo. Reluctant champion.",
+        books: {
+          "Gardens of the Moon": [
+            "Does not appear"
+          ],
+          "Deadhouse Gates": [
+            "Does not appear"
+          ],
+          "Memories of Ice": [
+            "Caravan guard in Capustan",
+            "Chosen by Trake during siege",
+            "Transforms into Mortal Sword",
+            "Superhuman feats in battle",
+            "Stripes appear across body",
+            "Reluctant about divine role",
+            "Critical in defense of Capustan"
+          ]
+        }
+      },
+      {
+        name: "Itkovian",
+        aliases: ["Shield Anvil of Fener", "The Redeemer"],
+        race: "Human",
+        status: "Dead (Ascended)",
+        appearance: "Knight in grey armor. Noble bearing. Sorrowful eyes that have seen too much. Pure heart.",
+        abilities: "Shield Anvil - can absorb others' pain and suffering. Exceptional warrior. Absolute compassion.",
+        weapons: "Sword, shield, armor of Shield Anvil",
+        rank: "Shield Anvil",
+        affiliation: "Grey Swords (mercenary company devoted to Fener)",
+        nationality: "Various",
+        god: "Served Fener (later becomes the Redeemer)",
+        warren: "Connection to Fener",
+        relationships: "Commands Grey Swords. Takes on suffering of entire armies. Ultimate compassion incarnate.",
+        books: {
+          "Gardens of the Moon": [
+            "Does not appear"
+          ],
+          "Deadhouse Gates": [
+            "Does not appear"
+          ],
+          "Memories of Ice": [
+            "Shield Anvil of Grey Swords",
+            "Defends Capustan against Pannion",
+            "Takes on suffering of dying and dead",
+            "Absorbs grief of T'lan Imass",
+            "Dies from bearing too much pain",
+            "Ascends as the Redeemer",
+            "One of the most heroic figures in series"
+          ]
+        }
+      }
+    ];
+
+    let filteredCharacters = [...characters];
+    let selectedCharacter = null;
+    let activeFilters = {
+      race: null,
+      status: null,
+      affiliation: null
+    };
+
+    // Get unique values for filters
+    const races = [...new Set(characters.map(c => c.race))].sort();
+    const statuses = [...new Set(characters.map(c => c.status))].sort();
+    const affiliations = [...new Set(characters.flatMap(c => c.affiliation.split(', ')))].sort();
+
+    function initFilters() {
+      const raceFiltersDiv = document.getElementById('raceFilters');
+      races.forEach(race => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn';
+        btn.textContent = race;
+        btn.onclick = () => toggleFilter('race', race);
+        raceFiltersDiv.appendChild(btn);
+      });
+
+      const statusFiltersDiv = document.getElementById('statusFilters');
+      statuses.forEach(status => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn';
+        btn.textContent = status;
+        btn.onclick = () => toggleFilter('status', status);
+        statusFiltersDiv.appendChild(btn);
+      });
+
+      const affiliationFiltersDiv = document.getElementById('affiliationFilters');
+      affiliations.slice(0, 10).forEach(affiliation => { // Show first 10 affiliations
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn';
+        btn.textContent = affiliation;
+        btn.onclick = () => toggleFilter('affiliation', affiliation);
+        affiliationFiltersDiv.appendChild(btn);
+      });
+    }
+
+    function toggleFilter(type, value) {
+      if (activeFilters[type] === value) {
+        activeFilters[type] = null;
+      } else {
+        activeFilters[type] = value;
+      }
+      
+      // Update button states
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        if (btn.textContent === value) {
+          btn.classList.toggle('active');
+        }
+      });
+      
+      filterCharacters();
+    }
+
+    function filterCharacters() {
+      const searchTerm = document.getElementById('searchBox').value.toLowerCase();
+      
+      filteredCharacters = characters.filter(char => {
+        // Search filter
+        const matchesSearch = !searchTerm || 
+          char.name.toLowerCase().includes(searchTerm) ||
+          char.aliases.toLowerCase().includes(searchTerm) ||
+          char.race.toLowerCase().includes(searchTerm) ||
+          char.affiliation.toLowerCase().includes(searchTerm) ||
+          char.rank.toLowerCase().includes(searchTerm);
+        
+        // Race filter
+        const matchesRace = !activeFilters.race || char.race === activeFilters.race;
+        
+        // Status filter
+        const matchesStatus = !activeFilters.status || char.status === activeFilters.status;
+        
+        // Affiliation filter
+        const matchesAffiliation = !activeFilters.affiliation || 
+          char.affiliation.includes(activeFilters.affiliation);
+        
+        return matchesSearch && matchesRace && matchesStatus && matchesAffiliation;
+      });
+      
+      renderCharacters();
+    }
+
+    function renderCharacters() {
+      const grid = document.getElementById('charactersGrid');
+      const countDiv = document.getElementById('characterCount');
+      
+      countDiv.textContent = `Showing ${filteredCharacters.length} of ${characters.length} characters`;
+      
+      grid.innerHTML = '';
+      
+      filteredCharacters.forEach(char => {
+        const card = document.createElement('div');
+        card.className = 'character-card';
+        if (selectedCharacter?.name === char.name) {
+          card.classList.add('selected');
+        }
+        
+        card.innerHTML = `
+          <div class="character-name">${char.name}</div>
+          <div class="character-title">${char.aliases}</div>
+          <div class="character-meta">
+            <span class="meta-badge badge-race">${char.race}</span>
+            <span class="meta-badge badge-status-${char.status.toLowerCase().replace(/ /g, '-')}">${char.status}</span>
+            ${char.warren !== 'None' ? `<span class="meta-badge badge-warren">${char.warren.split(',')[0]}</span>` : ''}
+          </div>
+        `;
+        
+        card.onclick = () => showCharacterDetail(char);
+        grid.appendChild(card);
+      });
+    }
+
+    function showCharacterDetail(char) {
+      selectedCharacter = char;
+      renderCharacters(); // Update selected state
+      
+      const detailDiv = document.getElementById('characterDetail');
+      const contentDiv = document.getElementById('detailContent');
+      
+      const bookEntries = Object.entries(char.books).map(([book, events]) => {
+        const isOpen = false;
+        return `
+          <div class="book-toggle">
+            <div class="book-header" onclick="toggleBook(this)">
+              <div class="book-title">${book}</div>
+              <div class="book-arrow">▸</div>
+            </div>
+            <div class="book-content">
+              <div class="book-summary">
+                <ul>
+                  ${events.map(event => `<li>${event}</li>`).join('')}
+                </ul>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+      
+      contentDiv.innerHTML = `
+        <div class="detail-header">
+          <h2 class="detail-name">${char.name}</h2>
+          <div class="detail-aliases">"${char.aliases}"</div>
+        </div>
+        
+        <div class="detail-grid">
+          <div class="detail-section">
+            <span class="detail-label">Race:</span>
+            <p>${char.race}</p>
+            
+            <span class="detail-label">Status:</span>
+            <p>${char.status}</p>
+            
+            <span class="detail-label">Appearance:</span>
+            <p>${char.appearance}</p>
+            
+            <span class="detail-label">Special Abilities:</span>
+            <p>${char.abilities}</p>
+          </div>
+          
+          <div class="detail-section">
+            <span class="detail-label">Rank/Title:</span>
+            <p>${char.rank}</p>
+            
+            <span class="detail-label">Affiliation:</span>
+            <p>${char.affiliation}</p>
+            
+            <span class="detail-label">Warren:</span>
+            <p>${char.warren}</p>
+            
+            <span class="detail-label">Weapons:</span>
+            <p>${char.weapons}</p>
+            
+            <span class="detail-label">God/Divine Connection:</span>
+            <p>${char.god}</p>
+            
+            <span class="detail-label">Nationality/Origin:</span>
+            <p>${char.nationality}</p>
+          </div>
+        </div>
+        
+        <div class="detail-section">
+          <span class="detail-label">Relationships:</span>
+          <p>${char.relationships}</p>
+        </div>
+        
+        <div class="books-section">
+          <h3 class="books-header">JOURNEY THROUGH THE BOOKS</h3>
+          ${bookEntries}
+        </div>
+      `;
+      
+      detailDiv.classList.add('show');
+      detailDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function toggleBook(headerElement) {
+      const bookToggle = headerElement.parentElement;
+      const content = bookToggle.querySelector('.book-content');
+      const arrow = headerElement.querySelector('.book-arrow');
+      
+      const isOpen = content.classList.contains('open');
+      
+      if (isOpen) {
+        content.classList.remove('open');
+        arrow.classList.remove('open');
+      } else {
+        content.classList.add('open');
+        arrow.classList.add('open');
+      }
+    }
+
+    // Initialize
+    document.getElementById('searchBox').addEventListener('input', filterCharacters);
+    
+    document.getElementById('closeDetail').addEventListener('click', () => {
+      document.getElementById('characterDetail').classList.remove('show');
+      selectedCharacter = null;
+      renderCharacters();
+    });
+
+    initFilters();
+    renderCharacters();
+  </script>
+</body>
+</html>
