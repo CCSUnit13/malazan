@@ -1445,6 +1445,603 @@
           "Witnesses the devastating losses at Coral"
         ]
       }
+    },
+    {
+      "name": "Keneb",
+      "aliases": "Fist Keneb",
+      "race": "Human",
+      "status": "Alive",
+      "appearance": "Capable officer with weathered features. Determined expression. Shows intelligence and tactical awareness.",
+      "abilities": "Solid military commander. Tactical competence. Leadership skills.",
+      "weapons": "Military sword, standard officer weapons",
+      "rank": "Captain (later Fist)",
+      "affiliation": "Malazan Army, 7th Army",
+      "nationality": "Malazan Empire",
+      "god": "None",
+      "warren": "None",
+      "relationships": "Serves under Coltaine. Brother to Selv. Protects his family during Chain of Dogs. Later serves under Tavore.",
+      "books": {
+        "Gardens of the Moon": [
+          "Does not appear"
+        ],
+        "Deadhouse Gates": [
+          "Captain in 7th Army under Coltaine",
+          "Participates in Chain of Dogs",
+          "Protects refugees including his family",
+          "Witnesses Wickan sacrifice",
+          "Survives to Aren",
+          "Promoted after surviving the ordeal"
+        ],
+        "Memories of Ice": [
+          "Does not appear (different theater)"
+        ]
+      }
+    },
+    {
+      "name": "Gesler",
+      "aliases": "",
+      "race": "Human",
+      "status": "Alive",
+      "appearance": "Grizzled veteran sergeant. Tanned, weathered skin with almost golden hue. Tough survivor.",
+      "abilities": "Exceptional soldier and leader. Survival expert. Touched by Fener's fire - unusual resilience.",
+      "weapons": "Military weapons, sword",
+      "rank": "Sergeant",
+      "affiliation": "Malazan Army",
+      "nationality": "Malazan Empire",
+      "god": "Touched by Fener",
+      "warren": "None directly, but fire-touched",
+      "relationships": "Close to Stormy and Truth. Commands respect from his squad. Survives Chain of Dogs.",
+      "books": {
+        "Gardens of the Moon": [
+          "Does not appear"
+        ],
+        "Deadhouse Gates": [
+          "Sergeant protecting refugees",
+          "Travels with Stormy and Truth (Hound of Shadow)",
+          "Revealed to be touched by Fener's fire",
+          "Golden skin from magical incident",
+          "Survives Chain of Dogs",
+          "Fierce loyalty to his soldiers"
+        ],
+        "Memories of Ice": [
+          "Does not appear (different theater)"
+        ]
+      }
+    },
+    {
+      "name": "Stormy",
+      "aliases": "",
+      "race": "Human",
+      "status": "Alive",
+      "appearance": "Large, powerful soldier. Red-haired. Fierce warrior. Golden-hued skin like Gesler.",
+      "abilities": "Powerful warrior. Touched by Fener's fire - enhanced resilience. Berserker in battle.",
+      "weapons": "Military weapons, favors close combat",
+      "rank": "Corporal",
+      "affiliation": "Malazan Army",
+      "nationality": "Malazan Empire",
+      "god": "Touched by Fener",
+      "warren": "None directly, but fire-touched",
+      "relationships": "Serves with Gesler. Close bond. Both fire-touched. Protects Truth.",
+      "books": {
+        "Gardens of the Moon": [
+          "Does not appear"
+        ],
+        "Deadhouse Gates": [
+          "Corporal with Gesler's group",
+          "Touched by Fener's fire - golden skin",
+          "Fierce protector of refugees",
+          "Guards Truth (Hound of Shadow)",
+          "Survives Chain of Dogs",
+          "Displays fearsome combat abilities"
+        ],
+        "Memories of Ice": [
+          "Does not appear (different theater)"
+        ]
+      }
+    },
+    {
+      "name": "Truth",
+      "aliases": "",
+      "race": "Hound of Shadow",
+      "status": "Alive",
+      "appearance": "Massive hound, one of the Hounds of Shadow. Damaged and weakened but still formidable. Black fur.",
+      "abilities": "Hound of Shadow - supernatural strength, speed, and senses. Warren travel. Intelligent.",
+      "weapons": "Teeth, claws, supernatural power",
+      "rank": "Hound of Shadow",
+      "affiliation": "House of Shadow, protected by Gesler and Stormy",
+      "nationality": "Shadow Realm",
+      "god": "Serves Shadowthrone",
+      "warren": "Kurald Emurlahn (Shadow)",
+      "relationships": "Protected by Gesler and Stormy. One of Shadowthrone's Hounds. Injured but recovering.",
+      "books": {
+        "Gardens of the Moon": [
+          "Appears as one of the Hounds of Shadow",
+          "Participates in shadow conflicts",
+          "Part of Shadowthrone's power"
+        ],
+        "Deadhouse Gates": [
+          "Badly injured, found by Gesler and Stormy",
+          "Protected by the soldiers during Chain of Dogs",
+          "Recovering from wounds",
+          "Bond forms with protectors",
+          "Survives journey"
+        ],
+        "Memories of Ice": [
+          "Does not appear"
+        ]
+      }
+    },
+    {
+      "name": "Lostara Yil",
+      "aliases": "",
+      "race": "Human (Seven Cities)",
+      "status": "Alive",
+      "appearance": "Beautiful Seven Cities woman. Red Blade warrior. Dark hair, fierce eyes. Lethal grace.",
+      "abilities": "Elite Red Blade assassin. Exceptional warrior and tracker. Otataral sword wielder.",
+      "weapons": "Otataral-edged tulwar (magic-negating)",
+      "rank": "Red Blade",
+      "affiliation": "Red Blades, later serves Adjunct Tavore",
+      "nationality": "Seven Cities",
+      "god": "None (Otataral prevents divine influence)",
+      "warren": "None (Otataral prevents access)",
+      "relationships": "Hunts Pearl (Claw). Complex relationship develops. Serves Tavore. Connected to Pearl's mission.",
+      "books": {
+        "Gardens of the Moon": [
+          "Does not appear"
+        ],
+        "Deadhouse Gates": [
+          "Red Blade elite warrior",
+          "Hunts the Claw agent Pearl",
+          "Wields otataral blade",
+          "Travels across Seven Cities",
+          "Forms uneasy alliance with Pearl",
+          "Witnesses rebellion firsthand",
+          "Recruited by Tavore"
+        ],
+        "Memories of Ice": [
+          "Does not appear (different theater)"
+        ]
+      }
+    },
+    {
+      "name": "Pearl",
+      "aliases": "",
+      "race": "Human",
+      "status": "Alive",
+      "appearance": "Lean, dangerous Claw agent. Sharp features. Moves with deadly grace. Always alert.",
+      "abilities": "Master Claw assassin. High-level mage. Expert at stealth, infiltration, assassination. Meanas Warren mastery.",
+      "weapons": "Assassin weapons, Meanas magic",
+      "rank": "Claw (high-ranking)",
+      "affiliation": "Claw, Malazan Empire",
+      "nationality": "Malazan Empire",
+      "god": "None",
+      "warren": "Meanas (Shadow/Illusion)",
+      "relationships": "Hunted by Lostara Yil. Forms complex alliance with her. Serves Empress Laseen. Works with Tavore.",
+      "books": {
+        "Gardens of the Moon": [
+          "Does not appear"
+        ],
+        "Deadhouse Gates": [
+          "Claw agent operating in Seven Cities",
+          "Hunted by Lostara Yil (Red Blade)",
+          "Uses Meanas for stealth and survival",
+          "Forms alliance with Lostara",
+          "Witnesses Whirlwind Rebellion",
+          "Survives numerous assassination attempts",
+          "Serves Adjunct Tavore's interests"
+        ],
+        "Memories of Ice": [
+          "Does not appear (different theater)"
+        ]
+      }
+    },
+    {
+      "name": "Blistig",
+      "aliases": "Fist Blistig",
+      "race": "Human",
+      "status": "Alive",
+      "appearance": "Military commander with hard features. Competent but not exceptional. Political awareness.",
+      "abilities": "Capable military officer. Standard commander skills.",
+      "weapons": "Officer's weapons, sword",
+      "rank": "Fist",
+      "affiliation": "Malazan Army, 7th Army",
+      "nationality": "Malazan Empire",
+      "god": "None",
+      "warren": "None",
+      "relationships": "Serves under Coltaine during Chain of Dogs. Later serves Tavore. Survivor of the ordeal.",
+      "books": {
+        "Gardens of the Moon": [
+          "Does not appear"
+        ],
+        "Deadhouse Gates": [
+          "Fist in 7th Army",
+          "Participates in Chain of Dogs",
+          "Sometimes questions Coltaine's tactics",
+          "Survives to Aren",
+          "Witnesses Wickan sacrifice"
+        ],
+        "Memories of Ice": [
+          "Does not appear (different theater)"
+        ]
+      }
+    },
+    {
+      "name": "Nok",
+      "aliases": "Admiral Nok",
+      "race": "Human",
+      "status": "Alive",
+      "appearance": "Weathered naval commander. Grey-bearded veteran. Commands respect through competence.",
+      "abilities": "Master naval tactician. Experienced fleet commander.",
+      "weapons": "Naval weaponry, sword",
+      "rank": "Admiral",
+      "affiliation": "Malazan Navy",
+      "nationality": "Malazan Empire",
+      "god": "None",
+      "warren": "None",
+      "relationships": "Commands Malazan fleet. Works with Tavore. Crucial in Seven Cities operations.",
+      "books": {
+        "Gardens of the Moon": [
+          "Does not appear"
+        ],
+        "Deadhouse Gates": [
+          "Commands Malazan fleet in Seven Cities",
+          "Provides naval support",
+          "Evacuates refugees when possible",
+          "Works with Tavore's forces",
+          "Key role at Aren"
+        ],
+        "Memories of Ice": [
+          "Does not appear (different theater)"
+        ]
+      }
+    },
+    {
+      "name": "Cuttle",
+      "aliases": "",
+      "race": "Human",
+      "status": "Alive",
+      "appearance": "Grizzled sapper. Scarred from munitions work. Competent, reliable demeanor.",
+      "abilities": "Expert sapper and demolitions specialist. Experienced soldier.",
+      "weapons": "Munitions, sharpers, crossbow",
+      "rank": "Sapper",
+      "affiliation": "Malazan Army",
+      "nationality": "Malazan Empire",
+      "god": "None",
+      "warren": "None",
+      "relationships": "Works with other sappers. Part of military operations in Seven Cities.",
+      "books": {
+        "Gardens of the Moon": [
+          "Does not appear"
+        ],
+        "Deadhouse Gates": [
+          "Sapper in Seven Cities campaign",
+          "Provides demolitions expertise",
+          "Survives the conflicts"
+        ],
+        "Memories of Ice": [
+          "Does not appear"
+        ]
+      }
+    },
+    {
+      "name": "Nether",
+      "aliases": "",
+      "race": "Human (Wickan)",
+      "status": "Alive",
+      "appearance": "Young Wickan witch. Tribal tattoos and fetishes. Intense, focused. Twin to Nil.",
+      "abilities": "Wickan witchcraft and spirit magic. Growing powers. Can sense spirit world.",
+      "weapons": "Magic, Wickan sorcery",
+      "rank": "Wickan Witch",
+      "affiliation": "Wickan tribes, 7th Army",
+      "nationality": "Wickan",
+      "god": "Wickan spirits and ancestors",
+      "warren": "Wickan spirit magic",
+      "relationships": "Twin sister to Nil. Serves with Coltaine. Connected to Wickan spirits. Sormo E'nath mentors both twins.",
+      "books": {
+        "Gardens of the Moon": [
+          "Does not appear"
+        ],
+        "Deadhouse Gates": [
+          "Young Wickan witch with Chain of Dogs",
+          "Twin to Nil (warlock)",
+          "Powers grow during journey",
+          "Provides magical support",
+          "Witnesses Wickan sacrifice",
+          "Survives to continue Wickan traditions"
+        ],
+        "Memories of Ice": [
+          "Does not appear (different theater)"
+        ]
+      }
+    },
+    {
+      "name": "Nil",
+      "aliases": "",
+      "race": "Human (Wickan)",
+      "status": "Alive",
+      "appearance": "Young Wickan warlock. Tribal markings. Intense presence. Twin to Nether.",
+      "abilities": "Wickan warlock powers. Spirit magic. Growing magical abilities.",
+      "weapons": "Magic, Wickan sorcery",
+      "rank": "Wickan Warlock",
+      "affiliation": "Wickan tribes, 7th Army",
+      "nationality": "Wickan",
+      "god": "Wickan spirits and ancestors",
+      "warren": "Wickan spirit magic",
+      "relationships": "Twin brother to Nether. Serves with Coltaine. Mentored by Sormo E'nath. Connected to Wickan ancestors.",
+      "books": {
+        "Gardens of the Moon": [
+          "Does not appear"
+        ],
+        "Deadhouse Gates": [
+          "Young Wickan warlock with Chain of Dogs",
+          "Twin to Nether (witch)",
+          "Powers develop during campaign",
+          "Provides magical support to Coltaine",
+          "Witnesses Wickan traditions and sacrifice",
+          "Survives the ordeal"
+        ],
+        "Memories of Ice": [
+          "Does not appear (different theater)"
+        ]
+      }
+    },
+    {
+      "name": "Kamist Reloe",
+      "aliases": "High Mage Kamist Reloe",
+      "race": "Human (Seven Cities)",
+      "status": "Dead",
+      "appearance": "Powerful Seven Cities mage. Arrogant bearing. Commanding presence.",
+      "abilities": "High Mage with considerable power. Master of multiple Warrens. Tactical magic use.",
+      "weapons": "Multiple Warrens - primarily destructive magic",
+      "rank": "High Mage (rebel forces)",
+      "affiliation": "Whirlwind Rebellion",
+      "nationality": "Seven Cities",
+      "god": "Serves the rebellion",
+      "warren": "Multiple Warrens",
+      "relationships": "Serves Korbolo Dom and the rebellion. Key magical support for rebel armies. Enemy of the Empire.",
+      "books": {
+        "Gardens of the Moon": [
+          "Does not appear"
+        ],
+        "Deadhouse Gates": [
+          "High Mage for Whirlwind Rebellion",
+          "Provides magical support to rebel forces",
+          "Faces Malazan mages in battle",
+          "Pursues Chain of Dogs",
+          "Killed during the campaign"
+        ],
+        "Memories of Ice": [
+          "Does not appear (deceased)"
+        ]
+      }
+    },
+    {
+      "name": "Korbolo Dom",
+      "aliases": "Fist Korbolo Dom, The Betrayer",
+      "race": "Human (Seven Cities)",
+      "status": "Alive",
+      "appearance": "Former Malazan Fist. Powerful build. Ambitious, ruthless features. Commanding presence.",
+      "abilities": "Brilliant military commander. Tactical genius. Utterly ruthless. Political manipulator.",
+      "weapons": "Military weapons, commands armies",
+      "rank": "Fist (renegade)",
+      "affiliation": "Whirlwind Rebellion (betrayed Malazan Empire)",
+      "nationality": "Seven Cities (formerly Malazan)",
+      "god": "None specifically, serves rebellion",
+      "warren": "None",
+      "relationships": "Betrayed the Malazan Empire. Commands rebel armies. Works with Kamist Reloe. Enemy of Coltaine and all Malazans. Hated as traitor.",
+      "books": {
+        "Gardens of the Moon": [
+          "Does not appear"
+        ],
+        "Deadhouse Gates": [
+          "Renegade Fist who betrayed Empire",
+          "Commands rebel forces against Chain of Dogs",
+          "Brutal tactics against refugees",
+          "Responsible for much suffering",
+          "Pursues Coltaine relentlessly",
+          "Leads forces at Aren",
+          "Survives but branded as traitor"
+        ],
+        "Memories of Ice": [
+          "Does not appear (different theater)"
+        ]
+      }
+    },
+    {
+      "name": "Loric",
+      "aliases": "High Mage Loric",
+      "race": "Human",
+      "status": "Alive",
+      "appearance": "Malazan High Mage. Composed, professional demeanor. Shows competence and experience.",
+      "abilities": "High Mage with considerable power. Multiple Warren access. Combat magic specialist.",
+      "weapons": "Magic - multiple Warrens",
+      "rank": "High Mage",
+      "affiliation": "Malazan Empire",
+      "nationality": "Malazan Empire",
+      "god": "None",
+      "warren": "Multiple Warrens",
+      "relationships": "Serves with Malazan forces. Works alongside other High Mages. Professional relationship with command.",
+      "books": {
+        "Gardens of the Moon": [
+          "Does not appear"
+        ],
+        "Deadhouse Gates": [
+          "Does not appear"
+        ],
+        "Memories of Ice": [
+          "High Mage in Pannion campaign",
+          "Provides magical support",
+          "Works with other mages",
+          "Participates in major battles"
+        ]
+      }
+    },
+    {
+      "name": "Febryl",
+      "aliases": "",
+      "race": "Human (Seven Cities)",
+      "status": "Alive",
+      "appearance": "Scheming mage in Seven Cities. Cunning features. Political operator.",
+      "abilities": "Mage with political cunning. Manipulator. Self-serving strategist.",
+      "weapons": "Magic, political manipulation",
+      "rank": "Mage",
+      "affiliation": "Whirlwind Rebellion (self-serving)",
+      "nationality": "Seven Cities",
+      "god": "None, serves himself",
+      "warren": "Various",
+      "relationships": "Manipulates events in Seven Cities. Works with but distrusts rebellion leaders. Self-interested schemer.",
+      "books": {
+        "Gardens of the Moon": [
+          "Does not appear"
+        ],
+        "Deadhouse Gates": [
+          "Mage operating in Seven Cities",
+          "Political schemer during rebellion",
+          "Self-serving manipulator",
+          "Plays various factions against each other",
+          "Survives through cunning"
+        ],
+        "Memories of Ice": [
+          "Does not appear (different theater)"
+        ]
+      }
+    },
+    {
+      "name": "Bidithal",
+      "aliases": "High Priest of the Whirlwind",
+      "race": "Human (Seven Cities)",
+      "status": "Alive",
+      "appearance": "Twisted, corrupt priest. Physically and morally deformed. Predatory and vile.",
+      "abilities": "High Priest with significant magical power. Utterly corrupt. Manipulates faith.",
+      "weapons": "Magic, religious authority, manipulation",
+      "rank": "High Priest of the Whirlwind",
+      "affiliation": "Whirlwind Rebellion",
+      "nationality": "Seven Cities",
+      "god": "Whirlwind Goddess (perverted worship)",
+      "warren": "Whirlwind/corrupted powers",
+      "relationships": "Serves Sha'ik Reborn. Corrupt influence on rebellion. Universally distrusted. Predatory toward vulnerable.",
+      "books": {
+        "Gardens of the Moon": [
+          "Does not appear"
+        ],
+        "Deadhouse Gates": [
+          "High Priest of Whirlwind",
+          "Serves Sha'ik Reborn (Felisin)",
+          "Corrupt and vile character",
+          "Manipulates through religious authority",
+          "Predatory behavior",
+          "Maintains power through fear"
+        ],
+        "Memories of Ice": [
+          "Does not appear (different theater)"
+        ]
+      }
+    },
+    {
+      "name": "Karsa Orlong",
+      "aliases": "Toblakai, Warrior of the Teblor",
+      "race": "Teblor (giant race)",
+      "status": "Alive",
+      "appearance": "Massive warrior, over 7 feet tall. Bronze skin, filed teeth. Primitive but learning. Immense physical presence.",
+      "abilities": "Superhuman strength and endurance. Master of violence. Growing intelligence. Unbreakable will. Learning civilized ways.",
+      "weapons": "Massive bloodsword (stone/wood)",
+      "rank": "Warrior",
+      "affiliation": "Teblor tribes (initially), later independent",
+      "nationality": "Teblor highlands",
+      "god": "Rejects all gods. 'I am Karsa Orlong. I will witness.'",
+      "warren": "None",
+      "relationships": "Traveled with Delum Thord and Bairoth Gild. Enslaved. Vows to destroy civilization. Complex relationship with 'lowlanders.'",
+      "books": {
+        "Gardens of the Moon": [
+          "Does not appear"
+        ],
+        "Deadhouse Gates": [
+          "Does not appear"
+        ],
+        "Memories of Ice": [
+          "Does not appear"
+        ]
+      }
+    },
+    {
+      "name": "Pella",
+      "aliases": "",
+      "race": "Human",
+      "status": "Alive",
+      "appearance": "Young soldier. Eager, capable. Shows promise.",
+      "abilities": "Developing soldier skills. Learns quickly. Loyal.",
+      "weapons": "Military weapons",
+      "rank": "Soldier",
+      "affiliation": "Malazan Army",
+      "nationality": "Malazan Empire",
+      "god": "None",
+      "warren": "None",
+      "relationships": "Serves with various squads. Learns from veterans.",
+      "books": {
+        "Gardens of the Moon": [
+          "Does not appear"
+        ],
+        "Deadhouse Gates": [
+          "Young soldier in Seven Cities",
+          "Learning from experienced soldiers",
+          "Shows competence and promise"
+        ],
+        "Memories of Ice": [
+          "Does not appear"
+        ]
+      }
+    },
+    {
+      "name": "Delum Thord",
+      "aliases": "",
+      "race": "Teblor",
+      "status": "Alive (brain damaged)",
+      "appearance": "Large Teblor warrior. Bronze skin, filed teeth. Massive build. Brain damaged from head wound.",
+      "abilities": "Once powerful warrior. Now diminished mentally but still physically strong.",
+      "weapons": "Teblor weapons",
+      "rank": "Warrior",
+      "affiliation": "Teblor tribes, traveled with Karsa",
+      "nationality": "Teblor highlands",
+      "god": "Teblor spirits",
+      "warren": "None",
+      "relationships": "Friend to Karsa Orlong and Bairoth Gild. Suffers brain injury. Protected by Karsa after injury.",
+      "books": {
+        "Gardens of the Moon": [
+          "Does not appear"
+        ],
+        "Deadhouse Gates": [
+          "Does not appear"
+        ],
+        "Memories of Ice": [
+          "Does not appear"
+        ]
+      }
+    },
+    {
+      "name": "Bairoth Gild",
+      "aliases": "",
+      "race": "Teblor",
+      "status": "Dead",
+      "appearance": "Large Teblor warrior. Bronze skin, filed teeth. Powerful and proud.",
+      "abilities": "Powerful Teblor warrior. Exceptional strength and combat skills.",
+      "weapons": "Teblor weapons, massive sword",
+      "rank": "Warrior",
+      "affiliation": "Teblor tribes, traveled with Karsa",
+      "nationality": "Teblor highlands",
+      "god": "Teblor spirits",
+      "warren": "None",
+      "relationships": "Friend to Karsa Orlong and Delum Thord. Traveled on raid together. Dies during journey.",
+      "books": {
+        "Gardens of the Moon": [
+          "Does not appear"
+        ],
+        "Deadhouse Gates": [
+          "Does not appear"
+        ],
+        "Memories of Ice": [
+          "Does not appear"
+        ]
+      }
     }
   ]
 }
