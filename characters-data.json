@@ -11,6 +11,7 @@
     "name": "Character Full Name",
     "aliases": "All nicknames, separated by commas or 'aka'",
     "race": "Human/Tiste Andii/etc",
+    "image": "",
     "status": "Alive/Dead/Ascended/Unknown",
     "appearance": "Physical description",
     "abilities": "Powers, skills, special abilities",
@@ -39,7 +40,7 @@
       "name": "Anomander Rake",
       "aliases": "Son of Darkness, Lord of Moon's Spawn, Knight of Darkness",
       "race": "Tiste Andii",
-      "image": "https://external-preview.redd.it/fs0Ykl3Qipqn67ngphOkEEjHxp3HxkTZyl0Y0jQMVMc.jpg?auto=webp&s=b5f2147a114823cd968925de746a5265079ab26c"
+      "image": "https://external-preview.redd.it/fs0Ykl3Qipqn67ngphOkEEjHxp3HxkTZyl0Y0jQMVMc.jpg?auto=webp&s=b5f2147a114823cd968925de746a5265079ab26c",
       "status": "Alive",
       "appearance": "Extremely tall (7+ feet), silver-haired, silver-skinned. Ageless and impossibly ancient. Eyes like pits of darkness. Wears black draconic armor.",
       "abilities": "Soletaken (dragon form - black dragon). Master swordsman. Commands Kurald Galain (Elder Darkness). Nearly godlike power.",
