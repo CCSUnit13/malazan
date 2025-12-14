@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Warrens of Malazan - Complete Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cinzel', 'Times New Roman', serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 50%, #16213e 100%);
+      color: #d4af37;
+      overflow-x: hidden;
+    }
+
+    .background-overlay {
+      position: fixed;
+      inset: 0;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(218, 165, 32, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .corner-ornament {
+      position: fixed;
+      width: 100px;
+      height: 100px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .corner-ornament.top-left {
+      top: 1rem;
+      left: 1rem;
+      border-top: 2px solid rgba(212, 175, 55, 0.3);
+      border-left: 2px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .corner-ornament.top-right {
+      top: 1rem;
+      right: 1rem;
+      border-top: 2px solid rgba(212, 175, 55, 0.3);
+      border-right: 2px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .title-section {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+      letter-spacing: 0.1em;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      font-family: 'Crimson Text', Georgia, serif;
+      font-style: italic;
+      color: #b8956f;
+      margin-bottom: 0.5rem;
+    }
+
+    .book-info {
+      font-size: 0.9rem;
+      color: #8b7355;
+      font-family: Georgia, serif;
+    }
+
+    .info-box {
+      background: rgba(10, 10, 20, 0.7);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .info-box.flex {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .info-icon {
+      color: #d4af37;
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+      width: 24px;
+      height: 24px;
+    }
+
+    .info-content {
+      font-family: Georgia, serif;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #c9b896;
+    }
+
+    .info-content p {
+      margin-bottom: 1rem;
+    }
+
+    .info-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-content strong {
+      color: #d4af37;
+    }
+
+    .info-content ul {
+      margin-left: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .info-content li {
+      margin-bottom: 0.3rem;
+    }
+
+    .section-header {
+      font-size: 1.3rem;
+      color: #d4af37;
+      margin-bottom: 1rem;
+      letter-spacing: 0.1em;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+      padding-bottom: 0.5rem;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .elemental-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .element-card {
+      background: rgba(20, 20, 35, 0.6);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 6px;
+      padding: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .element-card:hover {
+      border-color: #d4af37;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .element-title {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #d4af37;
+      margin-bottom: 0.5rem;
+    }
+
+    .element-warrens {
+      font-family: Georgia, serif;
+      font-size: 0.85rem;
+      color: #c9b896;
+      line-height: 1.5;
+    }
+
+    .chart-container {
+      background: rgba(10, 10, 20, 0.5);
+      border: 2px solid rgba(212, 175, 55, 0.4);
+      border-radius: 12px;
+      padding: 2rem;
+      position: relative;
+      min-height: 700px;
+      backdrop-filter: blur(5px);
+      margin-bottom: 2rem;
+    }
+
+    .chart-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      letter-spacing: 0.15em;
+      color: #d4af37;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+      padding-bottom: 0.5rem;
+    }
+
+    .warrens-section {
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .warrens-grid {
+      position: relative;
+      height: 300px;
+    }
+
+    .warrens-grid.younger {
+      height: 280px;
+    }
+
+    .warren-node {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .warren-card {
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      min-width: 160px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(212, 175, 55, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .warren-card.younger {
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      min-width: 130px;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .warren-node:hover .warren-card,
+    .warren-card.selected {
+      border-color: #d4af37;
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+      transform: scale(1.05);
+    }
+
+    .warren-name {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+
+    .warren-card.younger .warren-name {
+      font-size: 0.95rem;
+    }
+
+    .warren-subtitle {
+      font-size: 0.75rem;
+      font-family: Georgia, serif;
+      font-style: italic;
+    }
+
+    .warren-card.younger .warren-subtitle {
+      font-size: 0.7rem;
+    }
+
+    .detail-box {
+      margin-top: 2rem;
+      background: rgba(10, 10, 20, 0.8);
+      border: 2px solid rgba(212, 175, 55, 0.5);
+      border-radius: 12px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      animation: fadeIn 0.3s ease;
+      display: none;
+    }
+
+    .detail-box.show {
+      display: block;
+    }
+
+    .detail-title {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: #d4af37;
+    }
+
+    .detail-subtitle {
+      font-size: 1.1rem;
+      font-style: italic;
+      margin-bottom: 1rem;
+      color: #b8956f;
+    }
+
+    .detail-description {
+      font-family: Georgia, serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #c9b896;
+      margin-bottom: 1rem;
+    }
+
+    .detail-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .detail-meta-item {
+      font-family: Georgia, serif;
+      font-size: 0.9rem;
+      color: #c9b896;
+    }
+
+    .detail-meta-label {
+      color: #d4af37;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .practitioner-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .practitioner-list li {
+      padding: 0.2rem 0;
+    }
+
+    .footer-note {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #8b7355;
+      font-family: Georgia, serif;
+      font-style: italic;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .subtitle {
+        font-size: 1rem;
+      }
+      .container {
+        padding: 2rem 1rem;
+      }
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+      .detail-meta {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-overlay"></div>
+  <div class="corner-ornament top-left"></div>
+  <div class="corner-ornament top-right"></div>
+
+  <div class="container">
+    <div class="title-section">
+      <h1>THE WARRENS</h1>
+      <p class="subtitle">Complete Guide to Paths of Power</p>
+      <p class="book-info">Known Through Book III: Memories of Ice</p>
+    </div>
+
+    <!-- Overview -->
+    <div class="info-box flex">
+      <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="16" x2="12" y2="12"></line>
+        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+      </svg>
+      <div class="info-content">
+        <p><strong>Elder Warrens</strong> are the ancient, primordial sources of magic, predating the younger paths. They are more powerful but also more dangerous and difficult to access.</p>
+        <p><strong>Younger/Aspected Warrens</strong> are derived from the Elder Warrens, accessible through study and practice. These are the paths typically used by mortal mages of the Malazan Empire and beyond.</p>
+      </div>
+    </div>
+
+    <!-- The Holds and Azath -->
+    <div class="two-column">
+      <div class="info-box">
+        <h3 class="section-header">THE HOLDS</h3>
+        <div class="info-content">
+          <p><strong>The Holds</strong> are the ancient predecessors to the Warrens, even more primordial than the Elder Warrens. They represent the original paths of power before the Warrens were formed.</p>
+          <ul>
+            <li><strong>Ice Hold</strong> - Connected to Omtose Phellack</li>
+            <li><strong>Dark Hold</strong> - Connected to Kurald Galain</li>
+            <li><strong>Light Hold</strong> - Connected to Kurald Thyrllan</li>
+            <li><strong>Shadow Hold</strong> - Connected to Kurald Emurlahn</li>
+          </ul>
+          <p style="margin-top: 1rem;">The Holds are less understood than the Warrens and are considered nearly inaccessible to modern mages.</p>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <h3 class="section-header">AZATH HOUSES</h3>
+        <div class="info-content">
+          <p>The <strong>Azath</strong> are mysterious houses that appear throughout the world, connected to both the Warrens and the Holds. They serve as prisons for beings of immense power.</p>
+          <p><strong>Key Properties:</strong></p>
+          <ul>
+            <li>Trap and contain powerful entities</li>
+            <li>Connected to the ancient Holds</li>
+            <li>Can manifest in multiple realms</li>
+            <li>Nearly indestructible</li>
+            <li>Possess their own form of sentience</li>
+          </ul>
+          <p style="margin-top: 1rem;"><em>Known Azath: Deadhouse (Malaz City), the Azath in Darujhistan</em></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Elemental Associations -->
+    <div class="info-box">
+      <h3 class="section-header">ELEMENTAL ASSOCIATIONS</h3>
+      <div class="elemental-grid">
+        <div class="element-card">
+          <div class="element-title">🔥 FIRE</div>
+          <div class="element-warrens">Telas (Path of Fire)<br>Tellann (Imass Fire)</div>
+        </div>
+        <div class="element-card">
+          <div class="element-title">❄️ ICE</div>
+          <div class="element-warrens">Omtose Phellack (Jaghut Ice)</div>
+        </div>
+        <div class="element-card">
+          <div class="element-title">🌑 DARKNESS</div>
+          <div class="element-warrens">Kurald Galain (Elder)<br>Rashan (Aspected)</div>
+        </div>
+        <div class="element-card">
+          <div class="element-title">🌘 SHADOW</div>
+          <div class="element-warrens">Kurald Emurlahn (Elder)<br>Meanas (Aspected)</div>
+        </div>
+        <div class="element-card">
+          <div class="element-title">☀️ LIGHT</div>
+          <div class="element-warrens">Kurald Thyrllan (Elder)<br>Thyr (Aspected)</div>
+        </div>
+        <div class="element-card">
+          <div class="element-title">🪨 EARTH/STONE</div>
+          <div class="element-warrens">D'riss (Path of Stone)<br>Tellann (partial)</div>
+        </div>
+        <div class="element-card">
+          <div class="element-title">🌪️ SKY/STORM</div>
+          <div class="element-warrens">Serc (Path of Sky)</div>
+        </div>
+        <div class="element-card">
+          <div class="element-title">💚 LIFE/HEALING</div>
+          <div class="element-warrens">Denul (Path of Healing)</div>
+        </div>
+        <div class="element-card">
+          <div class="element-title">🧠 MIND</div>
+          <div class="element-warrens">Mockra (Path of Mind)</div>
+        </div>
+        <div class="element-card">
+          <div class="element-title">💀 DEATH</div>
+          <div class="element-warrens">Hood's Path (Gate of Death)</div>
+        </div>
+        <div class="element-card">
+          <div class="element-title">🐉 CHAOS/DRAGON</div>
+          <div class="element-warrens">Starvald Demelain (First Warren)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Imperial Warrens -->
+    <div class="info-box">
+      <h3 class="section-header">IMPERIAL WARRENS</h3>
+      <div class="info-content">
+        <p>The <strong>Malazan Empire's High Mages</strong> primarily utilize the Younger/Aspected Warrens. Through the Imperial Cadre system, mages are trained in specific paths:</p>
+        <p><strong>Commonly Used Imperial Warrens:</strong></p>
+        <ul>
+          <li><strong>Thyr</strong> - Favored for destructive combat magic (light/fire)</li>
+          <li><strong>Meanas</strong> - Used for illusion, deception, and covert operations</li>
+          <li><strong>Mockra</strong> - Employed for interrogation and mental manipulation</li>
+          <li><strong>Denul</strong> - Essential for military healers and support</li>
+          <li><strong>Serc</strong> - Weather manipulation and naval warfare</li>
+          <li><strong>Rashan & D'riss</strong> - Less common but available</li>
+        </ul>
+        <p style="margin-top: 1rem;"><em>The Empire cannot access Elder Warrens except through exceptional individuals. High Mages often learn multiple Warrens for versatility in combat.</em></p>
+      </div>
+    </div>
+
+    <!-- The Chart -->
+    <div class="chart-container">
+      <svg class="chart-svg" id="connectionsSvg"></svg>
+
+      <div class="warrens-section">
+        <h2 class="section-title">ELDER WARRENS</h2>
+        <div class="warrens-grid" id="elderWarrens"></div>
+      </div>
+
+      <div class="warrens-section">
+        <h2 class="section-title">YOUNGER / ASPECTED WARRENS</h2>
+        <div class="warrens-grid younger" id="youngerWarrens"></div>
+      </div>
+    </div>
+
+    <!-- Selected Warren Detail -->
+    <div class="detail-box" id="detailBox">
+      <h3 class="detail-title" id="detailName"></h3>
+      <p class="detail-subtitle" id="detailSubtitle"></p>
+      <p class="detail-description" id="detailDescription"></p>
+      
+      <div class="detail-meta" id="detailMeta"></div>
+    </div>
+
+    <div class="footer-note">
+      "The Warrens are the paths between worlds, the roads of power that crisscross reality itself."
+    </div>
+  </div>
+
+  <script>
+    const elderWarrens = [
+      {
+        id: 'galain',
+        name: 'Kurald Galain',
+        subtitle: 'Elder Darkness',
+        description: 'The original Warren of Darkness, realm of the Tiste Andii. Ancient and primordial, wielded by those who dwell in eternal night.',
+        position: { x: 20, y: 20 },
+        color: '#1a0033',
+        textColor: '#d4af37',
+        element: 'Darkness',
+        hold: 'Dark Hold',
+        connects: ['rashan'],
+        practitioners: [
+          'Anomander Rake (Son of Darkness)',
+          'Caladan Brood (touched by it)',
+          'Tiste Andii in general',
+          'Korlat, Orfantal, Hornet'
+        ]
+      },
+      {
+        id: 'emurlahn',
+        name: 'Kurald Emurlahn',
+        subtitle: 'Elder Shadow',
+        description: 'The shattered Warren of Shadow, now fragmented and dangerous. Realm of the Tiste Edur. Its fracturing has made it unpredictable and treacherous.',
+        position: { x: 80, y: 20 },
+        color: '#2d2d44',
+        textColor: '#d4af37',
+        element: 'Shadow',
+        hold: 'Shadow Hold',
+        connects: ['meanas'],
+        practitioners: [
+          'Shadowthrone/Ammanas',
+          'Cotillion/Dancer',
+          'Tiste Edur',
+          'Apt (demons of Shadow)'
+        ]
+      },
+      {
+        id: 'thyrllan',
+        name: 'Kurald Thyrllan',
+        subtitle: 'Elder Light',
+        description: 'The Warren of Light, realm of the Tiste Liosan. Blinding and unforgiving, it burns with untempered brilliance.',
+        position: { x: 50, y: 10 },
+        color: '#fff7e6',
+        textColor: '#1a1a2e',
+        subtitleColor: '#3d3d5c',
+        element: 'Light',
+        hold: 'Light Hold',
+        connects: ['thyr'],
+        practitioners: [
+          'Tiste Liosan (rarely encountered)',
+          'Osserc (rumored)'
+        ]
+      },
+      {
+        id: 'tellann',
+        name: 'Tellann',
+        subtitle: 'Warren of the Imass',
+        description: "Fire and earth, the ancient power of the T'lan Imass. Primordial and austere, it is the Warren of an undead race bound by ancient ritual.",
+        position: { x: 15, y: 50 },
+        color: '#4a2511',
+        textColor: '#d4af37',
+        element: 'Fire & Earth',
+        hold: 'Fire Hold (partial)',
+        connects: ['telas'],
+        practitioners: [
+          "T'lan Imass (Tool, Lanas Tog, etc)",
+          'Silverfox (limited)',
+          'Pran Chole, Bek Okhan'
+        ]
+      },
+      {
+        id: 'omtose',
+        name: 'Omtose Phellack',
+        subtitle: 'Ice of the Jaghut',
+        description: 'The Warren of Ice, wielded by the ancient Jaghut. Cold beyond imagining, it represents stasis and isolation.',
+        position: { x: 85, y: 50 },
+        color: '#c7e7ff',
+        textColor: '#1a1a2e',
+        subtitleColor: '#3d3d5c',
+        element: 'Ice',
+        hold: 'Ice Hold',
+        connects: [],
+        practitioners: [
+          'Jaghut Tyrants',
+          'Raest (the Jaghut in Darujhistan)',
+          'Phellack (ancient Jaghut)'
+        ]
+      },
+      {
+        id: 'demelain',
+        name: 'Starvald Demelain',
+        subtitle: 'Warren of Dragons',
+        description: 'The First Warren, path of the Eleint. Source of chaos and raw power, from which all other Warrens are said to derive.',
+        position: { x: 50, y: 40 },
+        color: '#4a1a1a',
+        textColor: '#d4af37',
+        element: 'Chaos/Eleint',
+        hold: 'N/A (predates Holds)',
+        connects: ['telas'],
+        practitioners: [
+          'Silanah (red Eleint)',
+          'Korabas (mentioned)',
+          'Sormo E\'nath (touched by)',
+          'Soletaken & D\'ivers who take dragon form'
+        ]
+      }
+    ];
+
+    const youngerWarrens = [
+      {
+        id: 'rashan',
+        name: 'Rashan',
+        subtitle: 'Path of Darkness',
+        description: 'Aspected Warren of darkness and shadow. Used by High Mages for stealth, concealment, and darkness-based magic.',
+        position: { x: 20, y: 70 },
+        color: '#1f1135',
+        textColor: '#d4af37',
+        element: 'Darkness',
+        derivedFrom: 'Kurald Galain',
+        imperial: true,
+        practitioners: [
+          'Quick Ben (among others)',
+          'Some Claw assassins',
+          'Various Imperial mages'
+        ]
+      },
+      {
+        id: 'meanas',
+        name: 'Meanas',
+        subtitle: 'Path of Shadow & Illusion',
+        description: 'The Warren of deception, illusion, and shadow-craft. Essential for spies, assassins, and those who work in the shadows.',
+        position: { x: 80, y: 70 },
+        color: '#3d3d5c',
+        textColor: '#d4af37',
+        element: 'Shadow/Illusion',
+        derivedFrom: 'Kurald Emurlahn',
+        imperial: true,
+        practitioners: [
+          'Quick Ben',
+          'Kalam Mekhar (limited)',
+          'Pearl (Claw)',
+          'Claws in general',
+          'Some Bridgeburner mages'
+        ]
+      },
+      {
+        id: 'thyr',
+        name: 'Thyr',
+        subtitle: 'Path of Light',
+        description: 'Aspected Warren of light and revelation. Commonly used for destructive magic and is a favorite among Imperial cadres.',
+        position: { x: 50, y: 60 },
+        color: '#ffe6b3',
+        textColor: '#3d3d5c',
+        subtitleColor: '#5c4a3d',
+        element: 'Light/Fire',
+        derivedFrom: 'Kurald Thyrllan',
+        imperial: true,
+        practitioners: [
+          'Tayschrenn (High Mage)',
+          'Tattersail/Silverfox',
+          'Hairlock (before)',
+          'Bellurdan (Thelomen)',
+          'Many Imperial High Mages'
+        ]
+      },
+      {
+        id: 'denul',
+        name: 'Denul',
+        subtitle: 'Path of Healing',
+        description: 'The Warren of healing and life force. Essential for military operations, used by healers throughout the Empire.',
+        position: { x: 35, y: 85 },
+        color: '#2d5c3d',
+        textColor: '#d4af37',
+        element: 'Life/Healing',
+        derivedFrom: 'Unknown',
+        imperial: true,
+        practitioners: [
+          'Duiker (limited ability)',
+          'Imperial healers',
+          'Various medical mages',
+          'Quick Ben (among others)'
+        ]
+      },
+      {
+        id: 'driss',
+        name: "D'riss",
+        subtitle: 'Path of Stone',
+        description: 'The Warren of earth and stone. Less commonly used but powerful for defensive magic and earth manipulation.',
+        position: { x: 65, y: 85 },
+        color: '#5c4a3d',
+        textColor: '#d4af37',
+        element: 'Earth/Stone',
+        derivedFrom: 'Unknown',
+        imperial: true,
+        practitioners: [
+          'Quick Ben',
+          'Some Imperial mages',
+          'Earth-aspected sorcerers'
+        ]
+      },
+      {
+        id: 'telas',
+        name: 'Telas',
+        subtitle: 'Path of Fire',
+        description: 'Aspected Warren of fire and destruction. Derived from both Tellann and Starvald Demelain, it is raw destructive power.',
+        position: { x: 15, y: 85 },
+        color: '#5c2611',
+        textColor: '#d4af37',
+        element: 'Fire',
+        derivedFrom: 'Tellann / Starvald Demelain',
+        imperial: true,
+        practitioners: [
+          'Quick Ben',
+          'Calot (Bridgeburners)',
+          'Various combat mages'
+        ]
+      },
+      {
+        id: 'serc',
+        name: 'Serc',
+        subtitle: 'Path of Sky',
+        description: 'The Warren of sky, wind, and storm. Particularly useful in naval warfare and weather manipulation.',
+        position: { x: 85, y: 85 },
+        color: '#4a6b8a',
+        textColor: '#d4af37',
+        element: 'Sky/Storm',
+        derivedFrom: 'Unknown',
+        imperial: true,
+        practitioners: [
+          'Kulp (7th Army mage)',
+          'Naval mages',
+          'Weather workers'
+        ]
+      },
+      {
+        id: 'mockra',
+        name: 'Mockra',
+        subtitle: 'Path of Mind',
+        description: 'The Warren of mental manipulation and thought. Used for interrogation, mental assault, and psychological warfare.',
+        position: { x: 50, y: 85 },
+        color: '#5c3d5c',
+        textColor: '#d4af37',
+        element: 'Mind/Thought',
+        derivedFrom: 'Unknown',
+        imperial: true,
+        practitioners: [
+          'Quick Ben',
+          'Imperial interrogators',
+          'Claw mind-workers',
+          'Tayschrenn'
+        ]
+      },
+      {
+        id: 'hood',
+        name: "Hood's Path",
+        subtitle: 'Gate of Death',
+        description: 'The Warren of Hood, God of Death. Separate from the traditional Holds and Warrens, it is the path to the Realm of Death itself.',
+        position: { x: 50, y: 95 },
+        color: '#0d0d0d',
+        textColor: '#d4af37',
+        element: 'Death',
+        derivedFrom: "Hood's Realm (separate)",
+        imperial: false,
+        practitioners: [
+          'Ganoes Paran (touched by Hood)',
+          'Bauchelain & Korbal Broach (necromancers)',
+          'Death-aspected warlocks'
+        ]
+      }
+    ];
+
+    let selectedWarren = null;
+
+    function createWarrenNode(warren, isYounger = false) {
+      const node = document.createElement('div');
+      node.className = 'warren-node';
+      node.style.left = warren.position.x + '%';
+      node.style.top = warren.position.y + '%';
+      node.dataset.id = warren.id;
+
+      const card = document.createElement('div');
+      card.className = 'warren-card' + (isYounger ? ' younger' : '');
+      card.style.background = `linear-gradient(135deg, ${warren.color} 0%, rgba(0,0,0,${isYounger ? '0.4' : '0.3'}) 100%)`;
+
+      const name = document.createElement('div');
+      name.className = 'warren-name';
+      name.textContent = warren.name;
+      name.style.color = warren.textColor;
+
+      const subtitle = document.createElement('div');
+      subtitle.className = 'warren-subtitle';
+      subtitle.textContent = warren.subtitle;
+      subtitle.style.color = warren.subtitleColor || '#b8956f';
+
+      card.appendChild(name);
+      card.appendChild(subtitle);
+      node.appendChild(card);
+
+      node.addEventListener('click', () => selectWarren(warren));
+
+      return node;
+    }
+
+    function selectWarren(warren) {
+      selectedWarren = warren;
+
+      // Update all cards
+      document.querySelectorAll('.warren-card').forEach(card => {
+        card.classList.remove('selected');
+      });
+
+      const selectedNode = document.querySelector(`[data-id="${warren.id}"]`);
+      if (selectedNode) {
+        selectedNode.querySelector('.warren-card').classList.add('selected');
+      }
+
+      // Update detail box
+      const detailBox = document.getElementById('detailBox');
+      document.getElementById('detailName').textContent = warren.name;
+      document.getElementById('detailSubtitle').textContent = warren.subtitle;
+      document.getElementById('detailDescription').textContent = warren.description;
+
+      // Build metadata section
+      const metaDiv = document.getElementById('detailMeta');
+      metaDiv.innerHTML = '';
+
+      // Column 1
+      const col1 = document.createElement('div');
+      
+      if (warren.element) {
+        const elementItem = document.createElement('div');
+        elementItem.className = 'detail-meta-item';
+        elementItem.innerHTML = `<span class="detail-meta-label">Element:</span>${warren.element}`;
+        col1.appendChild(elementItem);
+      }
+
+      if (warren.hold) {
+        const holdItem = document.createElement('div');
+        holdItem.className = 'detail-meta-item';
+        holdItem.innerHTML = `<span class="detail-meta-label">Ancient Hold:</span>${warren.hold}`;
+        col1.appendChild(holdItem);
+      }
+
+      if (warren.derivedFrom) {
+        const derivedItem = document.createElement('div');
+        derivedItem.className = 'detail-meta-item';
+        derivedItem.innerHTML = `<span class="detail-meta-label">Derived From:</span>${warren.derivedFrom}`;
+        col1.appendChild(derivedItem);
+      }
+
+      if (warren.imperial !== undefined) {
+        const imperialItem = document.createElement('div');
+        imperialItem.className = 'detail-meta-item';
+        imperialItem.innerHTML = `<span class="detail-meta-label">Imperial Warren:</span>${warren.imperial ? 'Yes' : 'No'}`;
+        col1.appendChild(imperialItem);
+      }
+
+      if (warren.connects && warren.connects.length > 0) {
+        const connectedNames = warren.connects.map(id => {
+          const connected = youngerWarrens.find(w => w.id === id);
+          return connected ? connected.name : '';
+        }).filter(Boolean);
+
+        const connectsItem = document.createElement('div');
+        connectsItem.className = 'detail-meta-item';
+        connectsItem.innerHTML = `<span class="detail-meta-label">Connected to:</span>${connectedNames.join(', ')}`;
+        col1.appendChild(connectsItem);
+      }
+
+      // Column 2 - Practitioners
+      const col2 = document.createElement('div');
+      if (warren.practitioners && warren.practitioners.length > 0) {
+        const practItem = document.createElement('div');
+        practItem.className = 'detail-meta-item';
+        const practList = warren.practitioners.map(p => `<li>${p}</li>`).join('');
+        practItem.innerHTML = `<span class="detail-meta-label">Known Practitioners:</span><ul class="practitioner-list">${practList}</ul>`;
+        col2.appendChild(practItem);
+      }
+
+      metaDiv.appendChild(col1);
+      metaDiv.appendChild(col2);
+
+      detailBox.classList.add('show');
+      
+      // Smooth scroll to detail box
+      setTimeout(() => {
+        detailBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
+    }
+
+    function drawConnections() {
+      const svg = document.getElementById('connectionsSvg');
+
+      elderWarrens.forEach(elder => {
+        elder.connects.forEach(connId => {
+          const younger = youngerWarrens.find(y => y.id === connId);
+          if (!younger) return;
+
+          const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+          line.setAttribute('x1', elder.position.x + '%');
+          line.setAttribute('y1', elder.position.y + '%');
+          line.setAttribute('x2', younger.position.x + '%');
+          line.setAttribute('y2', younger.position.y + '%');
+          line.setAttribute('stroke', 'rgba(212, 175, 55, 0.2)');
+          line.setAttribute('stroke-width', '2');
+          line.setAttribute('stroke-dasharray', '5,5');
+
+          svg.appendChild(line);
+        });
+      });
+    }
+
+    // Initialize
+    const elderContainer = document.getElementById('elderWarrens');
+    elderWarrens.forEach(warren => {
+      elderContainer.appendChild(createWarrenNode(warren, false));
+    });
+
+    const youngerContainer = document.getElementById('youngerWarrens');
+    youngerWarrens.forEach(warren => {
+      youngerContainer.appendChild(createWarrenNode(warren, true));
+    });
+
+    drawConnections();
+  </script>
+</body>
+</html>
