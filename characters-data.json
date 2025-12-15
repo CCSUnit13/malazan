@@ -2044,6 +2044,827 @@
           "Does not appear"
         ]
       }
-    }
+    },
+    {
+  "name": "Bellurdan",
+  "aliases": "",
+  "race": "Thelomen Toblakai (giant)",
+  "status": "Dead",
+  "appearance": "Massive Thelomen Toblakai. Over 9 feet tall. Gentle giant despite fearsome size. Kind eyes.",
+  "abilities": "Powerful mage of Thyr (fire). Immense physical strength. Gentle nature belying appearance.",
+  "weapons": "Thyr Warren (fire magic), massive weapons",
+  "rank": "High Mage",
+  "affiliation": "Malazan Army",
+  "nationality": "Thelomen Toblakai",
+  "god": "None",
+  "warren": "Thyr (Path of Light/Fire)",
+  "relationships": "Loved Tattersail deeply. Fellow cadre mage. Died with Tattersail. Gentle soul who found love late in life.",
+  "books": {
+    "Gardens of the Moon": [
+      "High Mage in Malazan forces",
+      "Romance with Tattersail",
+      "Gentle giant, beloved by Tattersail",
+      "Dies in Darujhistan conflicts",
+      "His love for Tattersail is deep and pure",
+      "Soul may be part of Silverfox's rebirth"
+    ],
+    "Deadhouse Gates": [
+      "Does not appear (deceased)"
+    ],
+    "Memories of Ice": [
+      "Does not appear (deceased)"
+    ]
+  }
+},
+{
+  "name": "Nightchill",
+  "aliases": "",
+  "race": "Human (Ascended)",
+  "status": "Dead (soul merged into Silverfox)",
+  "appearance": "Powerful sorceress. Cold, calculating demeanor. Ancient power barely contained.",
+  "abilities": "Immensely powerful sorceress. Master of multiple Warrens. Near-ascendant level power.",
+  "weapons": "Multiple Warrens, ancient magic",
+  "rank": "High Mage (former)",
+  "affiliation": "Malazan Empire (formerly)",
+  "nationality": "Malazan Empire",
+  "god": "None originally, later ascendant-level",
+  "warren": "Multiple high-level Warrens",
+  "relationships": "Previous incarnation before Tattersail. Soul merged with Tattersail and Silverfox to create The Summoner. Connected to ancient powers.",
+  "books": {
+    "Gardens of the Moon": [
+      "Revealed as previous incarnation of Tattersail",
+      "Powerful sorceress from past",
+      "Soul preserved through magic",
+      "Part of ritual creating Silverfox"
+    ],
+    "Deadhouse Gates": [
+      "Soul merged into Silverfox",
+      "Memories present in The Summoner"
+    ],
+    "Memories of Ice": [
+      "Appears as part of Silverfox",
+      "Ancient memories and power",
+      "One of three souls in The Summoner"
+    ]
+  }
+},
+{
+  "name": "Laseen",
+  "aliases": "Empress Laseen, Surly (former name)",
+  "race": "Human",
+  "status": "Alive",
+  "appearance": "Cold, calculating Empress. Middle-aged. Hard features. Absolutely controlled demeanor. Reveals nothing.",
+  "abilities": "Former Claw assassin. Political genius. Master manipulator. Utterly ruthless. Brilliant strategist.",
+  "weapons": "Political power, command of Empire, former Claw skills",
+  "rank": "Empress of the Malazan Empire",
+  "affiliation": "Malazan Empire",
+  "nationality": "Malazan Empire",
+  "god": "None",
+  "warren": "None (former Claw)",
+  "relationships": "Assassinated Emperor Kellanved (Shadowthrone) and Dancer (Cotillion). Commands Tayschrenn and the Claw. Distrusted by Bridgeburners. Sister to Tavore (possibly). Complex relationship with all.",
+  "books": {
+    "Gardens of the Moon": [
+      "Empress of Malazan Empire",
+      "Revealed as former Claw 'Surly'",
+      "Assassinated Kellanved and Dancer",
+      "Orders against Bridgeburners",
+      "Schemes through Tayschrenn",
+      "Faces threats from multiple sources"
+    ],
+    "Deadhouse Gates": [
+      "Rules Empire from throne",
+      "Target of Kalam's assassination attempt",
+      "Appoints Tavore as Adjunct",
+      "Deals with Seven Cities rebellion",
+      "Survives assassination attempts"
+    ],
+    "Memories of Ice": [
+      "Background presence ruling Empire",
+      "Politics with Dujek's 'rogue' army",
+      "Schemes continue"
+    ]
+  }
+},
+{
+  "name": "Topper",
+  "aliases": "Clawmaster",
+  "race": "Human",
+  "status": "Alive",
+  "appearance": "Master of the Claw. Unremarkable appearance by design. Cold, efficient. Deadly.",
+  "abilities": "Master assassin and spymaster. Commands entire Claw organization. Expert in espionage, assassination, intelligence.",
+  "weapons": "Claw weapons, political power, vast spy network",
+  "rank": "Clawmaster",
+  "affiliation": "Claw, Malazan Empire, serves Empress Laseen",
+  "nationality": "Malazan Empire",
+  "god": "None",
+  "warren": "Limited (Claw training)",
+  "relationships": "Serves Empress Laseen directly. Commands all Claw operatives. Rival to Shadowthrone and Cotillion. Pearl reports to him.",
+  "books": {
+    "Gardens of the Moon": [
+      "Master of the Claw",
+      "Orchestrates operations against threats",
+      "Serves Empress Laseen",
+      "Faces Shadowthrone's schemes"
+    ],
+    "Deadhouse Gates": [
+      "Commands Claw operations in Seven Cities",
+      "Defends against Kalam's assassination attempt",
+      "Faces the Talons (Shadowthrone's assassins)",
+      "Political maneuvering"
+    ],
+    "Memories of Ice": [
+      "Background operations",
+      "Continues commanding Claw"
+    ]
+  }
+},
+{
+  "name": "Gamet",
+  "aliases": "Fist Gamet",
+  "race": "Human",
+  "status": "Alive",
+  "appearance": "Older veteran officer. Grey-haired, weathered. Honorable bearing. Competent and loyal.",
+  "abilities": "Experienced military commander. Tactical knowledge. Loyal soldier.",
+  "weapons": "Military weapons, sword",
+  "rank": "Fist",
+  "affiliation": "Malazan Army",
+  "nationality": "Malazan Empire",
+  "god": "None",
+  "warren": "None",
+  "relationships": "Serves under Tavore. Loyal to the Adjunct. Honorable officer in difficult circumstances.",
+  "books": {
+    "Gardens of the Moon": [
+      "Does not appear"
+    ],
+    "Deadhouse Gates": [
+      "Fist serving in Seven Cities",
+      "Works with Tavore",
+      "Honorable officer",
+      "Survives the rebellion"
+    ],
+    "Memories of Ice": [
+      "Does not appear (different theater)"
+    ]
+  }
+},
+{
+  "name": "Crone",
+  "aliases": "Great Raven",
+  "race": "Great Raven",
+  "status": "Alive",
+  "appearance": "Ancient, massive raven. Intelligent beyond normal birds. Scarred from countless years. Wise, cunning eyes.",
+  "abilities": "Ancient intelligence. Can speak. Servant and spy of Moon's Spawn. Long memory. Political awareness.",
+  "weapons": "Intelligence, information",
+  "rank": "Servant/Spy of Anomander Rake",
+  "affiliation": "Moon's Spawn, Tiste Andii, serves Anomander Rake",
+  "nationality": "Ancient",
+  "god": "Serves Anomander Rake",
+  "warren": "Some connection to ancient powers",
+  "relationships": "Loyal servant to Anomander Rake. Messenger and spy. Ancient witness to history. Respected despite being a bird.",
+  "books": {
+    "Gardens of the Moon": [
+      "Servant of Anomander Rake",
+      "Messenger for Moon's Spawn",
+      "Provides intelligence",
+      "Witnesses events in Darujhistan"
+    ],
+    "Deadhouse Gates": [
+      "Does not appear"
+    ],
+    "Memories of Ice": [
+      "Returns serving Rake",
+      "Messenger between leaders",
+      "Witness to Pannion campaign",
+      "Ancient wisdom proves valuable"
+    ]
+  }
+},
+{
+  "name": "K'rul",
+  "aliases": "Elder God of the Warrens",
+  "race": "Elder God",
+  "status": "Alive (diminished)",
+  "appearance": "Ancient beyond measure. When manifested, appears as tired, ancient figure. Body scarred from creating the Warrens. Immense but fading power.",
+  "abilities": "Created the Warrens by bleeding his own power. Ancient magic beyond mortal comprehension. Shaped reality itself.",
+  "weapons": "Ancient god-level power, connection to all Warrens",
+  "rank": "Elder God",
+  "affiliation": "Elder Gods, protector of balance",
+  "nationality": "Beyond mortal concepts",
+  "god": "Is an Elder God himself",
+  "warren": "Created all Warrens from his own blood",
+  "relationships": "Elder God who sacrificed himself to create the Warrens. Connected to all magic. Manipulated by other gods. Schemes through agents like Kruppe. Opposes tyranny and the Crippled God.",
+  "books": {
+    "Gardens of the Moon": [
+      "K'rul's Bar in Darujhistan (his temple)",
+      "Works through agents like Kruppe",
+      "Ancient influence protecting the city",
+      "Opposes Jaghut Tyrant resurrection"
+    ],
+    "Deadhouse Gates": [
+      "Background presence",
+      "Ancient influence continues"
+    ],
+    "Memories of Ice": [
+      "More active involvement",
+      "Opposition to Crippled God",
+      "Works with Silverfox and others",
+      "Ancient wounds from creating Warrens matter",
+      "Protecting balance against Pannion Seer"
+    ]
+  }
+},
+{
+  "name": "The Crippled God",
+  "aliases": "Fallen One, Kaminsod",
+  "race": "God (alien)",
+  "status": "Alive (chained)",
+  "appearance": "Broken god chained to the world. Shattered body. Immense suffering. Bound by Elder Gods and mortal races.",
+  "abilities": "Immense divine power despite being chained. Can work through agents. Corrupts and influences mortals. God-level magic.",
+  "weapons": "Corruption, manipulation, fragments of power, suffering itself",
+  "rank": "Chained God",
+  "affiliation": "None - opposed by nearly everyone",
+  "nationality": "Not of this world",
+  "god": "Is a god, fell from another realm",
+  "warren": "Connected to corrupted/alien powers",
+  "relationships": "Chained by Elder Gods and mortals. Works through agents like Pannion Seer. Source of much suffering. Opposed by nearly all other powers. Origin of Otataral.",
+  "books": {
+    "Gardens of the Moon": [
+      "Mentioned as source of ancient cataclysm",
+      "Chained beneath the world",
+      "His fall created the Rent",
+      "Otataral connected to his imprisonment"
+    ],
+    "Deadhouse Gates": [
+      "Background threat",
+      "Influence felt through events",
+      "Otataral mines significant",
+      "His chains and suffering matter"
+    ],
+    "Memories of Ice": [
+      "Major antagonist through Pannion Seer",
+      "Fragment of his power in the Seer",
+      "Plans to break his chains",
+      "Confronted at climax of book",
+      "Revealed as source of Pannion's madness",
+      "Gods and mortals unite against him"
+    ]
+  }
+},
+{
+  "name": "Baruk",
+  "aliases": "High Alchemist of Darujhistan",
+  "race": "Human",
+  "status": "Alive",
+  "appearance": "Elderly High Alchemist. Grey-bearded, wise features. Dignified bearing. Kind eyes hiding great power.",
+  "abilities": "Master alchemist and mage. Immense magical knowledge. Political influence. Connected to city's defenses.",
+  "weapons": "High-level magic, alchemical knowledge",
+  "rank": "High Alchemist of Darujhistan",
+  "affiliation": "Darujhistan, Council, protector of the city",
+  "nationality": "Darujhistan",
+  "god": "None, but works with K'rul",
+  "warren": "Multiple (alchemist and mage)",
+  "relationships": "Leader of city's mages. Works with Mammot. Allied with K'rul. Protector of Darujhistan. Friend to Kruppe's circle. Opposes Empire.",
+  "books": {
+    "Gardens of the Moon": [
+      "High Alchemist protecting Darujhistan",
+      "Leads magical defense of city",
+      "Works to prevent Tyrant's resurrection",
+      "Coordinates with city's defenders",
+      "Faces Tayschrenn and Rake",
+      "Key role in city's survival",
+      "Allied with mysterious powers"
+    ],
+    "Deadhouse Gates": [
+      "Does not appear (different storyline)"
+    ],
+    "Memories of Ice": [
+      "Returns to Darujhistan",
+      "Continues protecting city",
+      "Involved in ongoing schemes"
+    ]
+  }
+},
+{
+  "name": "Raest",
+  "aliases": "The Jaghut Tyrant, Raest of the Jaghut",
+  "race": "Jaghut",
+  "status": "Dead (re-imprisoned then destroyed)",
+  "appearance": "Ancient Jaghut of immense power. Tall, tusked, ancient beyond measure. Terrifying presence when manifested.",
+  "abilities": "Jaghut Tyrant with godlike power. Master of Omtose Phellack (Ice). Can freeze entire cities. Near-unstoppable when freed.",
+  "weapons": "Omtose Phellack (Ice Warren), Finnest (repository of power)",
+  "rank": "Jaghut Tyrant",
+  "affiliation": "None (opposed by all)",
+  "nationality": "Ancient Jaghut",
+  "god": "Not a god but tyrant-level power",
+  "warren": "Omtose Phellack (Jaghut Ice)",
+  "relationships": "Imprisoned by Brood and Rake long ago. Enemy of all living things. Threatens Darujhistan. Opposed by T'lan Imass, Tiste Andii, and mortals alike.",
+  "books": {
+    "Gardens of the Moon": [
+      "Imprisoned beneath Darujhistan",
+      "Empire seeks to release him as weapon",
+      "Finnest stolen and manipulated",
+      "Partially awakens/manifests",
+      "Threatens to freeze entire city",
+      "Faces Anomander Rake in climactic battle",
+      "Defeated and re-imprisoned",
+      "Destroyed by Rake's Dragnipur"
+    ],
+    "Deadhouse Gates": [
+      "Does not appear (destroyed)"
+    ],
+    "Memories of Ice": [
+      "Does not appear (destroyed)"
+    ]
+  }
+},
+{
+  "name": "Vorcan",
+  "aliases": "Mistress of the Assassins, Lady Simtal (former identity)",
+  "race": "Human",
+  "status": "Alive",
+  "appearance": "Beautiful, deadly woman. Masters disguise. Cold, efficient. Hides immense skill beneath nobility.",
+  "abilities": "Master assassin and guild leader. Exceptional combat skills. Political manipulator. Ruthless leader.",
+  "weapons": "Assassin weapons, political power, guild resources",
+  "rank": "Mistress of the Assassins' Guild",
+  "affiliation": "Assassins' Guild, Darujhistan",
+  "nationality": "Darujhistan",
+  "god": "None",
+  "warren": "Limited use",
+  "relationships": "Leads Assassins' Guild. Complex relationship with Rallick Nom. Former identity as Lady Simtal. Political player in city.",
+  "books": {
+    "Gardens of the Moon": [
+      "Mistress of Assassins' Guild",
+      "Major player in city politics",
+      "Revealed connection to nobility",
+      "Confrontations with Rallick and others",
+      "Survives city's upheaval",
+      "Identity and schemes revealed"
+    ],
+    "Deadhouse Gates": [
+      "Does not appear"
+    ],
+    "Memories of Ice": [
+      "Continues operations in Darujhistan",
+      "Guild activities continue"
+    ]
+  }
+},
+{
+  "name": "Mammot",
+  "aliases": "",
+  "race": "Human",
+  "status": "Dead",
+  "appearance": "Elderly scholar and priest. Kind, scholarly demeanor. Crokus's uncle. Wise, gentle features.",
+  "abilities": "Priest and scholar of D'ivers and Soletaken. Extensive knowledge of ancient lore. Some magical ability.",
+  "weapons": "Knowledge, priestly magic",
+  "rank": "Priest, Scholar",
+  "affiliation": "Darujhistan, Temple",
+  "nationality": "Darujhistan",
+  "god": "Priest of various aspects",
+  "warren": "Limited priestly magic",
+  "relationships": "Uncle to Crokus. Mentor and scholar. Friend to Baruk. Possessed/killed by Raest's Finnest.",
+  "books": {
+    "Gardens of the Moon": [
+      "Crokus's uncle and guardian",
+      "Scholar studying D'ivers and Soletaken",
+      "Unknowingly possesses Raest's Finnest",
+      "Becomes vessel for Jaghut Tyrant",
+      "Possessed by Raest",
+      "Dies when possession ends",
+      "Tragic pawn in larger schemes"
+    ],
+    "Deadhouse Gates": [
+      "Does not appear (deceased)"
+    ],
+    "Memories of Ice": [
+      "Does not appear (deceased)"
+    ]
+  }
+},
+{
+  "name": "Toc the Elder",
+  "aliases": "First Sword of the Malazan Empire",
+  "race": "Human",
+  "status": "Alive",
+  "appearance": "Grizzled veteran commander. One eye. Tough, weathered features. Commands absolute respect.",
+  "abilities": "Master military commander. Legendary soldier. One of Empire's finest.",
+  "weapons": "Military weapons, tactical genius",
+  "rank": "First Sword of the Malazan Empire",
+  "affiliation": "Malazan Empire",
+  "nationality": "Malazan Empire",
+  "god": "None",
+  "warren": "None",
+  "relationships": "Father of Toc the Younger. Serves Empress. Legendary status. Complex feelings about son's fate.",
+  "books": {
+    "Gardens of the Moon": [
+      "Mentioned as legendary First Sword",
+      "Father to Toc the Younger",
+      "Historical presence"
+    ],
+    "Deadhouse Gates": [
+      "Does not appear directly"
+    ],
+    "Memories of Ice": [
+      "Appears in campaign",
+      "Commands forces",
+      "Faces horror of son's fate",
+      "Legendary warrior in action",
+      "Emotional confrontation with corrupted son"
+    ]
+  }
+},
+{
+  "name": "Pormqual",
+  "aliases": "High Fist Pormqual",
+  "race": "Human",
+  "status": "Dead",
+  "appearance": "Incompetent, cowardly High Fist. Overweight, nervous. Clearly out of his depth.",
+  "abilities": "Politically appointed - minimal actual military skill. Coward in crisis.",
+  "weapons": "Political connections (useless in combat)",
+  "rank": "High Fist",
+  "affiliation": "Malazan Empire",
+  "nationality": "Malazan Empire",
+  "god": "None",
+  "warren": "None",
+  "relationships": "Commands in Seven Cities. Despised by troops. Political appointment. Contrasted with Coltaine's competence. Executed by Tavore.",
+  "books": {
+    "Gardens of the Moon": [
+      "Does not appear"
+    ],
+    "Deadhouse Gates": [
+      "High Fist commanding Aren",
+      "Utterly incompetent and cowardly",
+      "Refuses to help Coltaine's Chain of Dogs",
+      "Lets refugees die outside Aren gates",
+      "Allows Wickan sacrifice",
+      "Arrested by Tavore",
+      "Executed for cowardice and incompetence",
+      "Symbol of everything wrong with political appointments"
+    ],
+    "Memories of Ice": [
+      "Does not appear (executed)"
+    ]
+  }
+},
+{
+  "name": "Mallick Rel",
+  "aliases": "Jhistal Priest",
+  "race": "Human (Seven Cities)",
+  "status": "Alive",
+  "appearance": "Oily, scheming priest. Obsequious manner hiding vicious cunning. Grotesque appearance. Slimy demeanor.",
+  "abilities": "Master political manipulator. Schemes and plots. Religious authority. Utterly self-serving.",
+  "weapons": "Political manipulation, religious authority, poison",
+  "rank": "Jhistal Priest",
+  "affiliation": "Jhistal faith, self-serving",
+  "nationality": "Seven Cities",
+  "god": "Mael (Jhistal aspect)",
+  "warren": "Limited religious magic",
+  "relationships": "Advises Pormqual (badly). Manipulates events for own gain. Enemy to Coltaine and competent leaders. Survives through cunning. Future threat.",
+  "books": {
+    "Gardens of the Moon": [
+      "Does not appear"
+    ],
+    "Deadhouse Gates": [
+      "Jhistal priest advising Pormqual",
+      "Manipulates incompetent High Fist",
+      "Schemes against Coltaine",
+      "Self-serving political operator",
+      "Sabotages efforts to help refugees",
+      "Survives purges through cunning",
+      "Clearly dangerous for future"
+    ],
+    "Memories of Ice": [
+      "Does not appear (different theater)"
+    ]
+  }
+},
+{
+  "name": "Minala",
+  "aliases": "",
+  "race": "Human (Seven Cities)",
+  "status": "Alive",
+  "appearance": "Seven Cities woman. Survivor. Fierce protector of children. Beautiful despite hardship.",
+  "abilities": "Survivor. Fierce determination. Protective nature. Growing combat capability.",
+  "weapons": "Basic weapons, determination",
+  "rank": "Civilian survivor",
+  "affiliation": "Refugee, later connected to Kalam",
+  "nationality": "Seven Cities",
+  "god": "None",
+  "warren": "None",
+  "relationships": "Protects orphaned children. Married to Kalam. Survivor of Whirlwind. Fierce guardian despite being non-military.",
+  "books": {
+    "Gardens of the Moon": [
+      "Does not appear"
+    ],
+    "Deadhouse Gates": [
+      "Refugee protecting orphaned children",
+      "Meets Kalam during rebellion",
+      "Fierce protector despite hardships",
+      "Romance with Kalam develops",
+      "Marries Kalam",
+      "Survives Whirlwind ordeal",
+      "Mother figure to children"
+    ],
+    "Memories of Ice": [
+      "Does not appear (different theater)"
+    ]
+  }
+},
+{
+  "name": "Sormo E'nath",
+  "aliases": "",
+  "race": "Human (Wickan)",
+  "status": "Dead",
+  "appearance": "Powerful Wickan warlock. Older, weathered. Ritual scars and fetishes. Wise, mystical presence.",
+  "abilities": "Powerful Wickan warlock. Spirit magic. Mentors Nil and Nether. Connected to ancient spirits.",
+  "weapons": "Wickan sorcery, spirit magic",
+  "rank": "Wickan Warlock",
+  "affiliation": "Wickan tribes, 7th Army under Coltaine",
+  "nationality": "Wickan",
+  "god": "Wickan spirits and ancestors",
+  "warren": "Wickan spirit magic, touched by Tellann",
+  "relationships": "Serves Coltaine. Mentors Nil and Nether. Connected to ancient Wickan spirits. Guides young warlocks.",
+  "books": {
+    "Gardens of the Moon": [
+      "Does not appear"
+    ],
+    "Deadhouse Gates": [
+      "Senior Wickan warlock with Chain of Dogs",
+      "Provides crucial magical support",
+      "Mentors Nil and Nether",
+      "Connected to Wickan ancestors",
+      "Faces supernatural threats",
+      "Dies heroically during Chain of Dogs",
+      "Sacrifice protects Wickan traditions"
+    ],
+    "Memories of Ice": [
+      "Does not appear (deceased)"
+    ]
+  }
+},
+{
+  "name": "Oponn",
+  "aliases": "The Twin Jesters of Chance, Lady Luck and Lord Chance, The Twins",
+  "race": "Gods (Ascended)",
+  "status": "Alive (Ascended)",
+  "appearance": "Twin gods - male and female. Young, playful appearance. Dice and coins as symbols. Mercurial and unpredictable.",
+  "abilities": "Gods of chance and luck. Can influence probability. Touch mortals to make them 'luck blessed' or 'cursed'. Manipulate events through chance.",
+  "weapons": "Divine power over chance, luck manipulation",
+  "rank": "Ascendant Gods",
+  "affiliation": "House of Luck/Chance",
+  "nationality": "Divine realm",
+  "god": "Are gods themselves",
+  "warren": "Divine powers",
+  "relationships": "Touched Ganoes Paran. Manipulate events through chance. Interfere in Darujhistan. Touch Crokus and Fiddler. Other gods wary of them.",
+  "books": {
+    "Gardens of the Moon": [
+      "Manipulate events in Darujhistan",
+      "Touch Ganoes Paran - kill and resurrect him",
+      "Make Paran Master of the Deck",
+      "Touch Crokus (luck)",
+      "Interfere with multiple factions",
+      "Playful but dangerous meddling"
+    ],
+    "Deadhouse Gates": [
+      "Touch Fiddler with luck",
+      "Influence events through chance",
+      "Background manipulations"
+    ],
+    "Memories of Ice": [
+      "Continued subtle influence",
+      "Luck affects various characters"
+    ]
+  }
+},
+{
+  "name": "Hood",
+  "aliases": "King of High House Death, Lord of Death",
+  "race": "God (Ascended)",
+  "status": "Alive (Ascended)",
+  "appearance": "Skeleton in tattered robes. Ancient beyond measure. Crown of bones. Carries a sword. Grim, implacable.",
+  "abilities": "God of Death. Commands the dead. Rules realm of death. Can grant or deny death. Enormous power.",
+  "weapons": "Divine power over death, sword",
+  "rank": "God of Death",
+  "affiliation": "High House Death",
+  "nationality": "Realm of Death",
+  "god": "Is a god - King of Death",
+  "warren": "Hood's Path (Gate of Death)",
+  "relationships": "All mortals eventually meet him. Connected to Ganoes Paran. Opposed by those seeking immortality. Itkovian becomes his Herald. Complex relationship with other gods.",
+  "books": {
+    "Gardens of the Moon": [
+      "Background presence as God of Death",
+      "Pulls Paran through his realm",
+      "Connected to Master of the Deck",
+      "Everyone swears by Hood ('Hood's breath', etc.)",
+      "Implied in all death"
+    ],
+    "Deadhouse Gates": [
+      "Massive death during Chain of Dogs",
+      "His realm grows crowded",
+      "Connection to events",
+      "Ganoes Paran's connection strengthens"
+    ],
+    "Memories of Ice": [
+      "Major presence during Pannion War",
+      "Itkovian becomes his Herald (the Redeemer)",
+      "Enormous death toll",
+      "More active in events",
+      "His Warren used more prominently"
+    ]
+  }
+},
+{
+  "name": "Fener",
+  "aliases": "The Boar of Summer, Boar God",
+  "race": "God (Ascended)",
+  "status": "Alive but diminished",
+  "appearance": "Massive boar-headed god. Powerful, primal. War and strength incarnate. Ancient soldier's god.",
+  "abilities": "God of war and strength. Grants power to followers. Can resurrect fallen. Shield Anvils absorb suffering for him.",
+  "weapons": "Divine power, aspect of war",
+  "rank": "God of War",
+  "affiliation": "High House War",
+  "nationality": "Divine realm",
+  "god": "Is a god",
+  "warren": "Fener's aspect, connected to Tellann",
+  "relationships": "Worshipped by soldiers. Heboric was his priest. Grey Swords serve him. Itkovian is Shield Anvil. Gesler and Stormy touched by his fire. Being pulled from world.",
+  "books": {
+    "Gardens of the Moon": [
+      "Worshipped by Malazan soldiers",
+      "Background presence",
+      "God of war and soldiers",
+      "Mentioned in oaths"
+    ],
+    "Deadhouse Gates": [
+      "Heboric was his priest",
+      "Gesler and Stormy touched by his fire",
+      "Connection weakening",
+      "Being pulled from world"
+    ],
+    "Memories of Ice": [
+      "Grey Swords serve him",
+      "Itkovian is Shield Anvil",
+      "Being chained/pulled away",
+      "Abandons followers during crisis",
+      "His withdrawal is major plot point",
+      "Betrayal of worshippers"
+    ]
+  }
+},
+{
+  "name": "Treach",
+  "aliases": "Trake, Tiger of Summer, First Hero",
+  "race": "God (Ascended Soletaken)",
+  "status": "Alive (Ascended)",
+  "appearance": "Massive tiger or tiger-man. Ancient First Hero ascended. Primal power. War incarnate.",
+  "abilities": "God-level power. Tiger aspect. War and violence. Can choose Mortal Swords. Transforms followers.",
+  "weapons": "Divine power, tiger aspect, violence itself",
+  "rank": "Ascendant God",
+  "affiliation": "High House War",
+  "nationality": "Divine realm",
+  "god": "Is a god (ascended First Hero)",
+  "warren": "Soletaken power, divine aspect",
+  "relationships": "Chooses Gruntle as Mortal Sword. Connected to Heboric (Ghost Hands). Ancient First Hero. Rivals with Fener.",
+  "books": {
+    "Gardens of the Moon": [
+      "Does not appear directly"
+    ],
+    "Deadhouse Gates": [
+      "Connected to Heboric's transformation",
+      "Ancient influence",
+      "First Hero references"
+    ],
+    "Memories of Ice": [
+      "Chooses Gruntle as Mortal Sword",
+      "Transforms Gruntle with tiger stripes",
+      "Power manifests during Capustan siege",
+      "Rivalry with Fener",
+      "Ancient and primal",
+      "More active than other gods"
+    ]
+  }
+},
+{
+  "name": "Andarist",
+  "aliases": "",
+  "race": "Tiste Andii",
+  "status": "Alive",
+  "appearance": "Tiste Andii, silver-skinned and black-haired. Younger brother to Anomander Rake. Ancient and powerful. Melancholy demeanor.",
+  "abilities": "Powerful Tiste Andii warrior and mage. Commands Kurald Galain. Ancient knowledge and power.",
+  "weapons": "Sword, Kurald Galain magic",
+  "rank": "Lord of Tiste Andii",
+  "affiliation": "Tiste Andii",
+  "nationality": "Tiste Andii",
+  "god": "Son of Mother Dark",
+  "warren": "Kurald Galain (Elder Darkness)",
+  "relationships": "Brother to Anomander Rake and Silchas Ruin. Tiste Andii lord. Ancient history with his brothers. Melancholy race.",
+  "books": {
+    "Gardens of the Moon": [
+      "Mentioned as Rake's brother",
+      "Historical references"
+    ],
+    "Deadhouse Gates": [
+      "Does not appear"
+    ],
+    "Memories of Ice": [
+      "Appears with Tiste Andii",
+      "Commands forces",
+      "Brother to Anomander Rake",
+      "Demonstrates ancient power",
+      "Melancholy of the Andii"
+    ]
+  }
+},
+{
+  "name": "Orfantal",
+  "aliases": "",
+  "race": "Tiste Andii",
+  "status": "Alive",
+  "appearance": "Young Tiste Andii. Silver-skinned, black-haired. Brother to Korlat and Hornet.",
+  "abilities": "Tiste Andii warrior. Kurald Galain access. Still learning compared to elders.",
+  "weapons": "Sword, Kurald Galain",
+  "rank": "Tiste Andii warrior",
+  "affiliation": "Tiste Andii, Moon's Spawn",
+  "nationality": "Tiste Andii",
+  "god": "Serves Anomander Rake",
+  "warren": "Kurald Galain (Elder Darkness)",
+  "relationships": "Brother to Korlat and Hornet. Serves under Anomander Rake. Young by Andii standards.",
+  "books": {
+    "Gardens of the Moon": [
+      "Background presence with Tiste Andii"
+    ],
+    "Deadhouse Gates": [
+      "Does not appear"
+    ],
+    "Memories of Ice": [
+      "Fights in Pannion campaign",
+      "Brother to Korlat",
+      "Tiste Andii warrior",
+      "Part of Rake's forces"
+    ]
+  }
+},
+{
+  "name": "Hornet",
+  "aliases": "",
+  "race": "Tiste Andii",
+  "status": "Alive",
+  "appearance": "Tiste Andii warrior. Silver-skinned, black-haired. Sister to Korlat and Orfantal.",
+  "abilities": "Tiste Andii warrior. Kurald Galain magic. Ancient combat skills.",
+  "weapons": "Sword, Kurald Galain",
+  "rank": "Tiste Andii warrior",
+  "affiliation": "Tiste Andii, Moon's Spawn",
+  "nationality": "Tiste Andii",
+  "god": "Serves Anomander Rake",
+  "warren": "Kurald Galain (Elder Darkness)",
+  "relationships": "Sister to Korlat and Orfantal. Serves under Anomander Rake. Part of the ancient race.",
+  "books": {
+    "Gardens of the Moon": [
+      "Background presence with Tiste Andii"
+    ],
+    "Deadhouse Gates": [
+      "Does not appear"
+    ],
+    "Memories of Ice": [
+      "Fights in Pannion campaign",
+      "Sister to Korlat",
+      "Tiste Andii warrior",
+      "Part of Rake's forces"
+    ]
+  }
+},
+{
+  "name": "Apt",
+  "aliases": "",
+  "race": "Demon of Shadow (Aptorian)",
+  "status": "Alive",
+  "appearance": "Massive demon of Shadow. Many-legged, insect-like but intelligent. Carries young in pouch. Frightening but protective.",
+  "abilities": "Demon of Shadow with supernatural strength and speed. Fiercely protective parent. Shadow Warren travel. Intelligent.",
+  "weapons": "Claws, mandibles, supernatural strength, shadow powers",
+  "rank": "Demon",
+  "affiliation": "House of Shadow, protects Crokus and Apsalar",
+  "nationality": "Shadow Realm",
+  "god": "Serves Cotillion",
+  "warren": "Kurald Emurlahn (Shadow)",
+  "relationships": "Gift from Cotillion to Crokus. Protects Crokus and Apsalar. Fiercely devoted parent to demon young. Travels with the group.",
+  "books": {
+    "Gardens of the Moon": [
+      "Does not appear"
+    ],
+    "Deadhouse Gates": [
+      "Given to Crokus by Cotillion",
+      "Protects Crokus and Apsalar",
+      "Carries young demons",
+      "Fierce mother protecting children",
+      "Travels across Seven Cities with group",
+      "Demonstrates intelligence and loyalty",
+      "Terrifying but devoted"
+    ],
+    "Memories of Ice": [
+      "Does not appear (different storyline)"
+    ]
+  }
+},
+
+    
   ]
 }
